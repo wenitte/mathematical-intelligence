@@ -1,0 +1,5 @@
+∀x,y(Constructible(Point(x, 0)) ∧ Constructible(Point(y, 0)) → ¬(x^3 = 2) ∧ ¬(cos(π/3) = 4y^3 - 3y))
+(Define radical_sqrt(r) := (r ∈ ℚ ∨ -r ∈ radical_sqrt ∨ (r ≠ 0 → 1/r ∈ radical_sqrt) ∨ (∃a,b ∈ radical_sqrt(a+b ∈ radical_sqrt)) ∨ (∃a,b ∈ radical_sqrt(a*b ∈ radical_sqrt)) ∨ (r ≥ 0 → sqrt(r) ∈ radical_sqrt)))
+(Assume x^3 = 2) → (∃p,q ∈ ℤ(coprime(p,q) ∧ q > 0 ∧ (p/q)^3 = 2)) → (p^3 = 2q^3) → (2|p) → (8|p^3) → (8|2q^3) → (2|q) → (2|gcd(p,q)) ∧ (coprime(p,q)) → Contradiction → ¬(x ∈ radical_sqrt)
+(Assume y = cos(π/9)) → (cos(3π/9) = 4y^3 - 3y) → (1/2 = 4y^3 - 3y) → (2y)^3 - 3(2y) - 1 = 0 → (∃p,q ∈ ℤ(coprime(p,q) ∧ q > 0 ∧ (p/q)^3 - 3(p/q) = 1)) → (p^3 - 3pq^2 = q^3) → (p|(q^3) ∧ q|(p^3)) → (coprime(p,q^3) ∧ coprime(p^3,q)) → (p ∈ {-1,1} ∧ q = 1) → Contradiction with p^3 - 3p = 1 → ¬(y ∈ radical_sqrt)
+(∀z(Constructible(Point(z,0)) → z ∈ radical_sqrt)) → (¬(x ∈ radical_sqrt) ∧ ¬(y ∈ radical_sqrt)) → ¬(Constructible(Point(x,0)) ∧ Constructible(Point(y,0)))
