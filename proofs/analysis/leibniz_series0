@@ -1,0 +1,39 @@
+theorem_definition(Leibniz_series_elementary) ↔
+    π/4 = Σ_{k=0}^∞ ((-1)ᵏ / (2k + 1))
+→
+
+[series_expansion(S) ↔
+    1 / (1 + t²) = Σ_{k=0}^n ((-1)ᵏ t²ᵏ) + t²ⁿ⁺² / (1 + t²)
+    valid for t ∈ [0, 1]]
+→
+
+[integral_expression(I₁) ↔
+    ∫₀ˣ (1 / (1 + t²)) dt = ∫₀ˣ (Σ_{k=0}^n ((-1)ᵏ t²ᵏ)) dt + Rₙ(x)
+    where Rₙ(x) = ∫₀ˣ (t²ⁿ⁺² / (1 + t²)) dt]
+→
+
+[remainder_bound(RB) ↔
+    0 ≤ Rₙ(x) ≤ ∫₀ˣ t²ⁿ⁺² dt
+    = x²ⁿ⁺³ / (4n + 3)
+    valid for x ∈ [0, 1]]
+→
+
+[limit_of_remainder(LR) ↔
+    As n → ∞, Rₙ(x) → 0 by the squeeze theorem:
+    0 ≤ Rₙ(x) ≤ x²ⁿ⁺³ / (4n + 3) → 0]
+→
+
+[termwise_integration(TI) ↔
+    By termwise integration:
+    ∫₀ˣ (Σ_{k=0}^n ((-1)ᵏ t²ᵏ)) dt = Σ_{k=0}^n ((-1)ᵏ x²ᵏ⁺¹ / (2k + 1))]
+→
+
+[elementary_arctan(EA) ↔
+    arctan(x) = ∫₀ˣ (1 / (1 + t²)) dt
+    → arctan(x) = Σ_{k=0}^∞ ((-1)ᵏ x²ᵏ⁺¹ / (2k + 1))]
+→
+
+[conclusion(C) ↔
+    For x = 1:
+    arctan(1) = π/4 = Σ_{k=0}^∞ ((-1)ᵏ / (2k + 1))
+    ∴ Proved.]
