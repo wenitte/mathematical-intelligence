@@ -1,0 +1,32 @@
+theorem_definition(Pascal_Theorem) ↔
+    ∀A₁, A₂, A₃, A₄, A₅, A₆ (Hexagon(A₁, A₂, A₃, A₄, A₅, A₆) ∧ 
+    InscribedInConic(Hexagon(A₁, A₂, A₃, A₄, A₅, A₆)) →
+    Collinear(Intersection(A₁A₂, A₄A₅), Intersection(A₂A₃, A₅A₆), Intersection(A₃A₄, A₆A₁))).
+→
+
+[affine_invariance(Affine_Transformations) ↔
+    ∀C (Conic(C) → ∀A, B, P (AffineMap(P) ∧ P(A, B) = A', B' →
+        Collinear(A, B, C) ↔ Collinear(A', B', C')))].
+→
+
+[lemma_parallel(Lemma₁) ↔
+    ∀ω₁, ω₂, M, N, A, B, C, D (Circles(ω₁, ω₂) ∧ Intersection(ω₁, ω₂) = {M, N} ∧ 
+        AB = Chord(ω₁) ∧ CD = SecondIntersections(Lines(AM, BN), ω₂) →
+        Parallel(AB, CD))].
+→
+
+[cyclic_hexagon(Hexagon_Configuration) ↔
+    ∀A₁, A₂, A₃, A₄, A₅, A₆ (Hexagon(A₁, A₂, A₃, A₄, A₅, A₆) ∧ Cyclic(Hexagon) →
+        Collinear(Intersection(A₁A₄, A₂A₅), Intersection(A₃A₆, A₄A₁), Intersection(A₆A₂, A₅A₃)))].
+→
+
+[homothety_invariance(Homothety_Center) ↔
+    ∀A₁, B₁, A₂, B₂, P₁ (Homothetic(Triangles(A₁B₁A₂, B₁A₂B₂), P₁) → 
+        Line(P₁, Intersection(A₁A₄, B₁B₂)))].
+→
+
+[conclusion(C) ↔
+    ∀A₁, A₂, A₃, A₄, A₅, A₆ (Hexagon(A₁, A₂, A₃, A₄, A₅, A₆) ∧ 
+    InscribedInConic(Hexagon(A₁, A₂, A₃, A₄, A₅, A₆)) →
+    Collinear(Intersection(A₁A₂, A₄A₅), Intersection(A₂A₃, A₅A₆), Intersection(A₃A₄, A₆A₁)).
+    ∴ Proved. )
