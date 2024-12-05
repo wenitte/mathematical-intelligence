@@ -1,0 +1,24 @@
+theorem_definition(Harmonic_Series_Divergence) ↔
+    ∀H (H = ∑_{n=1}^∞ 1/n ∧ H < ∞ →
+        Contradiction).
+→
+
+[series_expansion(Step_1) ↔
+    ∀H (H = ∑_{n=1}^∞ 1/n →
+        H ≥ 1 + 1/2 + (1/3 + 1/4) + (1/5 + 1/6 + 1/7 + 1/8) + ...)].
+→
+
+[grouping_terms(Step_2) ↔
+    ∀H (H ≥ 1 + 1/2 + 1/2 + 1/4 + ... →
+        H ≥ 1 + 1/2 + 1/2 + 1/4 + ...)].
+→
+
+[contradiction(Step_3) ↔
+    ∀H (H ≥ 1/2 + H →
+        Contradiction)].
+→
+
+[conclusion(C) ↔
+    ∀H (H = ∑_{n=1}^∞ 1/n →
+        H diverges.
+    ∴ Proved. )].
