@@ -1,0 +1,34 @@
+Here’s a formalized structure of the Ramsey theorem and related definitions based on the image provided:
+
+theorem_definition(Ramsey_Theorem) ↔
+∀s, t ≥ 2, ∃R(s, t) ∈ ℕ (∀G(V, E), |V| ≥ R(s, t) →
+(∃K ⊆ G, Clique(K, s) ∨ Independent_Set(K, t))).
+→
+
+[proposition(K6_Triangle_or_Independence)] ↔
+∀G(V, E), |V| = 6 →
+(∃K ⊆ G, |K| = 3 ∧ (Clique(K) ∨ Independent_Set(K))).
+→
+
+[definition_clique_independent(Clique_Independent_Definitions)] ↔
+Clique(t) ↔ ∀u, v ∈ K, {u, v} ∈ E.
+Independent_Set(t) ↔ ∀u, v ∈ K, {u, v} ∉ E.
+→
+
+[definition_ramsey_number(Ramsey_Number_Definition)] ↔
+R(s, t) ↔ min_n (∀G(V, E), |V| = n →
+(∃K ⊆ G, Clique(K, s) ∨ Independent_Set(K, t))).
+→
+
+[induction_step(Recursive_Bound)] ↔
+R(s, t) ≤ R(s - 1, t) + R(s, t - 1).
+→
+
+[explicit_bound(Binomial_Expansion)] ↔
+R(s, t) ≤ (s + t - 2 choose s - 1).
+→
+
+[conclusion(C)] ↔
+∀s, t ≥ 2, R(s, t) is finite,
+and the bounds hold for all graphs G with |V| ≥ R(s, t).
+∴ Proved.
