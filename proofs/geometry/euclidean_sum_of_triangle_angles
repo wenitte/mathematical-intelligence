@@ -1,0 +1,30 @@
+theorem_definition(Triangle_Sum_Euclidean) ↔
+    ∀ΔABC(Euclidean_Space(ΔABC) →
+        (∠A + ∠B + ∠C = π)).
+→
+
+[fifth_postulate(FP) ↔
+    ∀P∀L(Point(P) ∧ Line(L) ∧ P ∉ L → 
+        ∃!M(Line(M) ∧ Parallel(M, L) ∧ P ∈ M))].
+→
+
+[parallel_line_construction(PLC) ↔
+    ∀ΔABC∃x(Line(x) ∧ Parallel(x, AB) ∧ C ∈ x)].
+→
+
+[corresponding_angles(CA₁) ↔
+    ∀ΔABC(Line(AC) ∧ Intersects(AC, x, AB) →
+        (∠CAB = ∠ACx)) ∧
+    ∀ΔABC(Line(BC) ∧ Intersects(BC, x, AB) →
+        (∠ABC = ∠BCx))].
+→
+
+[linear_angle_sum(LAS) ↔
+    ∀ΔABC(∠CAB + ∠ABC + ∠ACB = π ∧ 
+        (∠ACB = π - (∠CAB + ∠ABC)))].
+→
+
+[conclusion(C) ↔
+    ∀ΔABC(Euclidean_Space(ΔABC) →
+        ∠CAB + ∠ABC + ∠ACB = π).
+    ∴ Proved. ]
