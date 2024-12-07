@@ -1,0 +1,1 @@
+Unfortunately, your request doesn't include any specific proof to explain. Could you please provide the exact mathematical proof that you want me to transform into a non-mathematical explanation?

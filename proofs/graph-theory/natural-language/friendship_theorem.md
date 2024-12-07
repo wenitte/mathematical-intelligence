@@ -1,0 +1,7 @@
+The theorem is defining a property called "Friendship". According to this definition, let's suppose we have a set 'T', which is a subset of the power set of 'U' (the set of all subsets of 'U'). This set 'T' is not empty and is said to be finite. Next, we define a relation 'F' that is a subset of the Cartesian product of 'T' with itself. This relation 'F' is characterized by two properties: symmetric and irreflexive. 
+
+By 'symmetric', we mean that if a pair (x, y) is in relation 'F', then the pair (y, x) is also in the same relation. Essentially, if 'x' is related to 'y', then 'y' is also related to 'x'. In contrast, 'irreflexive' means that no element in set 'T' is related to itself in relation 'F'; in other words, there are no pairs of the form (x, x) in this relation. 
+
+Additionally, for any distinct elements 'u' and 'v' in the set 'T', there is exactly one element 'w' in 'T' such that both 'u' is related to 'w' and 'v' is related to 'w'. 
+
+If all these conditions are met, then the Friendship theorem states that there exists an element 'u' in the set 'T' such that for every other element 'v' in 'T', 'u' isn't equivalent to 'v', but 'u' and 'v' are related by the relation 'F'. Hence, 'u' is essentially a "friend" to every other element in the set 'T', under the relation 'F', hence giving the theorem its name, 'Friendship'.

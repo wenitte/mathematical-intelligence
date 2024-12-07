@@ -1,0 +1,9 @@
+This is a three-part proof. Let's examine it step-by-step:
+
+1. **Definition of Equalizer:** We begin by defining an equalizer "E" in terms of two morphisms f and g (Morphisms are a kind of function in category theory), both of which go from one object "a" to another object "b". We also account for another object "e" in the category and a morphism "i" from "e" to "a". In this context, "E" is an equalizer if the composition of f and i is equal to the composition of g and i.
+
+2. **Universal Property:** Moving on, we establish a universal property "U". For all objects "x" in the category and all morphisms "h" from "x" to "a", if the composition of f and h is equal to the composition of g and h, then there exists a unique morphism "u" from "x" to "e" for which the composition of "i" and "u" is equal to "h". 
+
+3. **Uniqueness Proof:** Next, we present a proof for uniqueness "Q". We take two objects "e₁" and "e₂" in the category "C" and two morphisms "i₁" from "e₁" to "a" and "i₂" from "e₂" to "a". If both the compositions (of f and i₁, and of g and i₁) as well as (of f and i₂, and of g and i₂) are equal, then there exist unique morphisms "v" from "e₁" to "e₂" and "w" from "e₂" to "e₁". Moreover, the compositions of "w" with "v" is the identity morphism on "e₁" and "v" with "w" is identity morphism on "e₂". This implies that "e₁" is isomorphic to "e₂".
+
+In simpler terms, this proof formalizes the idea of an equalizer in category theory. An equalizer allows us to "pick out" the elements of a set or object for which two different functions give the same result. We also establish a universal property and through this property, we can talk about the uniqueness of equalizer which makes it an essential concept in category theory.

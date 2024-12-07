@@ -1,0 +1,11 @@
+In simpler terms, this proof is concerned with constructible points on the plane, specifically those on the x and y axes. We start by stating or rather assuming that a point (x, 0) on the x-axis is constructible if and only if "x" is a constructible number. Similarly, a point (y, 0) on the y-axis is constructible if and only if "y" is a constructible number. 
+
+We proceed by defining constructible numbers or "radical_sqrt" with interesting properties. A number is called a constructible number or in "radical_sqrt" if it's rational or its negative is constructible. Moreover, if a number isn't zero, its reciprocal is also constructible. Furthermore, a pair of constructible numbers exists whose sum and product are also constructible. Lastly, if a number is non-negative, then its square root is also constructible.
+
+Then, we handle two assumptions, one by one.
+
+First, assume x cubed equals 2, that is, x is the cube root of 2. Given this, there exist two integers p and q which are coprime (i.e., their greatest common divisor is one) and where q is positive such that (p/q) cubed equals 2. This leads to the conclusion that p cubed equals 2q cubed, thus both p and q must be divisible by the number 2. But the presence of this common factor contradicts the original condition that p and q are coprime, meaning we've hit an incompatible situation. This then forces us to the realization that x, or rather the cube root of 2, is not in our set of constructible numbers.
+
+Second, assume y equals cos(π/9) then, it leads to a similar contradiction. We start from an equation involving y and end up with an equation in terms of p and q (again, co-prime integers) which leads to a further contradiction. As before, we are led to the conclusion that y, or rather cos(π/9), is not in our set of constructible numbers.
+
+Finally, we conclude that if a point is constructible, then the x or y value must be a constructible number. Since we've shown that neither x nor y as we've defined them are constructible numbers, it follows that neither the points (x, 0) nor (y, 0) as we've defined them are constructible points. Thereby, proving the original statement.

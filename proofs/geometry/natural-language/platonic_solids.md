@@ -1,0 +1,12 @@
+The original theorem here is defining what a Platonic Solid is. In layman's terms, it says that a shape is considered a Platonic Solid if it meets certain criteria. For a shape P to be a Platonic Solid, it must possess a certain number of faces (F), vertices (V), and edges (E). Every face of the shape must be a regular polygon, and there must be at least three plane angles at each vertex that all add up to less than four right angles.
+
+The proof discussed here then proceeds to expand on this definition by specifically identifying what kind of regular polygons make up the faces of a Platonic Solid for each vertex of the shape. It first discusses triangles, stating that if the faces are equilateral triangles, then there can only be 3, 4, or 5 triangles at each vertex, and the total sum of their angles must be less than four right angles. This definition results in three platonic solids: the tetrahedron, the octahedron, and the icosahedron.
+
+It then moves onto squares, stating that if the faces are squares, then there must exactly be 3 squares at each vertex. From this definition, we get the cube as a platonic solid.
+
+Following this, it discusses pentagons, saying that if the faces are regular pentagons, there can only be three such pentagons at each vertex. From this definition, we get the dodecahedron as a platonic solid.
+
+Finally, the proof outlines an exclusion clause, stating that if the faces are any other kind of regular polygons (like a hexagon or higher), then the shape cannot be considered a Platonic Solid because you cannot have three or more of these polygons at a vertex without their angles adding up to four right angles or more.
+
+In conclusion, the proof states that there are only five Platonic Solids: the tetrahedron, the cube, the octahedron, the dodecahedron, and the icosahedron. It reaffirms the theorem's definition of a Platonic Solid: that their faces must be either triangles, squares, or pentagons, and their vertex angles must add up to less than four right angles. This provides a full definition and list of all Platonic Solids within the parameters set.
+In essence, the proof establishes the properties of a Platonic Solid, explores the possible configurations of faces, and concludes with a definitive list of Platonic Solids.

@@ -1,0 +1,11 @@
+The proof is about the equivalences of various properties concerning categories and functors, in a particular structure called an adjunction. It's establishing an equivalence between defining an adjunction using unit-counits, hom-set bijections, triangular identities, and natural isomorphisms.
+
+Firstly, we define an adjunction using unit-counits. For two functors F: C → D and G: D → C between categories, there are two natural transformations: the unit η: 1_C ⇒ G∘F (from the identity on C to the composition G followed by F), and the counit ε: F∘G ⇒ 1_D (from the composition F followed by G to the identity on D).
+
+The proof then shows that this definition is equivalent to defining the adjunction as a hom-set bijection. This is a natural isomorphism between two Hom-sets (sets of morphism), φ: Mor(F(x),y) → Mor(x,G(y)), in the categories. This isomorphism φ is given by applying the functor G to a morphism f and then composing with the unit at x, denoted G(f) ∘ η_x. The inverse of φ, denoted φ⁻¹, is given by applying the functor F to a morphism g, and then composing with the counit at y, denoted ε_y ∘ F(g).
+
+Next, the proof establishes that these two definitions are equivalent to another one which uses triangular identities. The triangular identities required are that applying G to the counit ε at x, and then composing with the unit at G(x), yield the identity at G(x), and similarly for the other triangular identity.
+
+Finally, the proof shows that these three definitions are equivalent to defining the adjunction using a condition on natural isomorphisms: that the isomorphism φ between the hom-sets is actually a natural isomorphism, implying that each φ_{x,y} is an isomorphism. It's then claimed that the unit-counit definition, hom-set bijection and triangular identities are equivalent to this natural isomorphism condition. 
+
+So, the proof exhibits multiple equivalent ways to define an adjunction between two categories. This kind of result is fundamental in category theory because it gives mathematicians different ways to think about and work with these structures.

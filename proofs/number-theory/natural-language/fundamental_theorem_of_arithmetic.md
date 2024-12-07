@@ -1,0 +1,11 @@
+In more understandable language, the theorem that is being proved here is the fundamental theorem of arithmetic. It claims that every positive integer greater than 1 can be expressed uniquely as a product of prime numbers.
+
+First, we have two lemmas, which are smaller pieces of logic that support the main proof. The first one, called the gcd_property, says that if a number m divides the product of two other numbers, p and q, and if m shares no factors other than 1 with p, then m must also divide q. The second lemma, referred to as Euclid’s lemma, says that if a prime number p divides the product of several numbers, then p must divide at least one of those numbers. 
+
+The existence proof proves that the theorem holds true for all possible values. It uses an induction method, a common technique in math proofs where you first prove a base case (the simplest possible case, in this case when n equals 2), and then show that if the theorem is true for some value k, it must also be true for the value k+1. Here, the induction step says that if n is a composite number (a number that can be formed by multiplying two smaller numbers, a and b), and we know that smaller values all can be expressed as a product of primes (from the induction assumption), then n also can be expressed as a product of primes.
+
+The uniqueness proof ensures that there is only one way to express each number as a product of primes. It assumes that there are two different ways to express the same number, and then uses the prime_analytics section and Euclid’s lemma to sequentially show that each prime on the left-hand side must appear on the right-hand side, and vice-versa. Ultimately, this process finds that the initial assumption (that there are two different prime factorizations) is not possible, proving uniqueness.
+
+Finally, the lcm_application part says that the least common multiple of two numbers a and b (the smallest number that both a and b divide) can be found by taking the product of all the distinct primes found in their prime factorizations.
+
+In conclusion, the fundamental theorem of arithmetic, which states that every integer greater than 1 can be represented uniquely as a product of primes, is proven.

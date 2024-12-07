@@ -1,0 +1,5 @@
+This proof is essentially about the relationship between the sizes, or cardinalities, of two sets, A and B. The cardinality of a set is the number of elements it contains. The proof states that the cardinality of set A is equivalent to the cardinality of set B if and only if there exists a specific type of function, named a bijective function, from A to B.
+
+A bijective function (also known as a bijection, or a one-to-one correspondence) is a particular type of relationship between two sets where every element of the first set is paired with exactly one element of the second set, and vice versa. Importantly, no element from either set is left unpaired, and no pairings are duplicated.
+
+So to put it in a simpler way: If there is a way to pair up all elements from set A with all elements from set B without any left over, then set A and set B have the same number of elements, or in other words, they have the same cardinality. And conversely, if sets A and B have the same cardinality, then there must exist a bijective function that can pair up all their elements in a one-to-one correspondence.

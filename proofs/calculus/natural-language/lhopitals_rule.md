@@ -1,0 +1,11 @@
+The definition of l'Hopital's rule states that given any functions f and g that are differentiable on an open interval I containing a particular value 'a', if at 'a', either both f(a) = g(a) = 0, or the limits as x approaches 'a' of both functions are either positive or negative infinity, then the limit of the division of f(x) and g(x) as x approaches 'a' is equal to the limit of the division of their derivatives if this limit exists.
+
+To support this theorem, the proof uses the Cauchy mean value theorem. This theorem says that given f and g are continuous on the closed interval from 'a' to 'b', and differentiable on the open interval from 'a' to 'b', there will always be a 'c' in the open interval from 'a' to 'b', such that the ratio of the derivatives of f and g at 'c' is equal to the ratio of the changes in f and g over the interval from 'a' to 'b'. 
+
+Then, considering a function h(x) which is a linear combination of f(x) and g(x), we apply Rolle's theorem to show that there is some 'c' in the open interval from 'a' to 'b' where the derivative of h equals 0. As a result, we can write this as the ratio of the derivatives of f and g at 'c' being the same as the ratio of the changes in f and g over the interval from 'a' to 'b'. 
+
+In the first case where f(a) = g(a) = 0, the Cauchy mean value theorem application finds some 'c' in the open interval from 'a' to 'b' where the ratio of the derivatives of f and g at 'c' equals the ratio of f(x) over g(x). As x approaches 'a' from the right, 'c' approaches 'a' so that the limit of the division of f(x) and g(x) as x approaches 'a' from the right equals the limit of the division of their derivatives.
+
+In the second case where the limits as x approaches 'a' of f(x) and g(x) are either positive or negative infinity, the limit of the ratio of the derivatives at 'c' (denoted as r(x)) equals 0, and hence the limit of the division of f(x) and g(x) as x approaches 'a' equals the limit L which is the limit of the division of their derivatives as x approaches 'a'. 
+
+Therefore, the proof concludes that l'Hopital's rule holds true: the limit as x approaches 'a' of the division of f(x) and g(x) equals the limit as 'x' approaches 'a' of the division of their derivatives, if this limit exists.

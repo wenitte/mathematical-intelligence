@@ -1,0 +1,1 @@
+I'm sorry, but you didn't provide any specific proof for me to explain. Please mention a particular formal proof you'd like me to translate into natural language.

@@ -1,0 +1,9 @@
+This proof demonstrates that a series of natural numbers, their squares, and their cubes, from 1 to any given natural number n, has a specific sum. First, we formulate expressions of these sums and later, validate these expressions using mathematical induction. 
+
+We begin by defining 'S₁' as the sum of natural numbers from 1 to n. To demonstrate that this series indeed sums to n(n + 1) / 2, we use mathematical induction. We start with the base case when n = 1, showing that the sum truly equals 1(1 + 1) / 2. Then, we step into the inductive phase where we assume the series of numbers up to k sums to k(k + 1) / 2. Now, we need to show that if we extend this series to the number following k, it still holds. We expand the sum by adding (k + 1) to it and show that it simplifies to (k + 1)(k + 2) / 2, demonstrating that 'S₁' expression is valid.
+
+In a similar manner, we define 'S₂' as the sum of squares of natural numbers from 1 to n. We express this sum as n(n + 1)(2n + 1) / 6 and again use mathematical induction to validate this expression. The base case when n = 1 is quickly verified. In the inductive step, we assume the sum of squares up to k equals k(k + 1)(2k + 1) / 6, and show that extending it by the square of the next number, (k + 1)², still upholds the sum formula of (k + 1)(k + 2)[2*(k + 1) + 1] / 6, thus proving that 'S₂' is valid.
+
+Lastly, we define 'S₃' as being the sum of cubes of natural numbers from 1 to n. We express it as [n(n + 1) / 2]² and validate it using the same process of mathematical induction. First, we confirm the base case. Then, we take an assumption for k and extend it to the number (k + 1)³. After simplification, we validate that the sum formula [(k + 1)(k + 2) / 2]² holds, confirming that 'S₃' is also valid. 
+
+In conclusion, for any natural number n, the sum of its series, the sum of squares, and the sum of cubes hold as n(n + 1) / 2, n(n + 1)(2n + 1) / 6, and [n(n + 1) / 2]² respectively.

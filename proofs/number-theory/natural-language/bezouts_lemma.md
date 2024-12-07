@@ -1,0 +1,13 @@
+This proof concerns a concept in number theory known as Bézout's Theorem. The theorem states that for any two integers, a and b, there exist two other integers, s and t, such that the greatest common divisor (gcd) of a and b can be expressed as a linear combination of a and b, i.e., gcd(a, b) = sa + tb. A crucial part of the proof also shows that any integer, c, is a multiple of the gcd of a and b if and only if it can be expressed as a linear combination of a and b.
+
+We start with the assumption that at least one of a or b is not zero, since if both were zero, the concept of their gcd would be uninteresting and pointless. 
+
+We then define two sets. J is the set of all integers that can be expressed as a linear combination of a and b with integer coefficients (na + mb). S is a subset of J, containing all positive elements of that set.
+
+By the Well-Ordering Principle, which says that every non-empty set of positive integers has a minimum, there is a minimum, d, in S. This d also belongs to J because S is a subset of J, meaning d can be expressed as sa + tb for integers s and t. Also, by definition, d is greater than 0.
+
+We then show that d divides both a and b. Consider the division of a by d. This division gives a quotient q and a remainder r (where 0 ≤ r < d). Then we can express r as a linear combination of a and b: r = a - dq = (1−sq)a – tqb. The remainder r is thus an element of J. Now, if r were positive, it must belong to S and would therefore contradict the definition of d as the minimal positive element in S. Thus, r must be equal to 0, so d divides a. Similarly, it can be shown that d also divides b.
+
+Next, we state that d is also the gcd of a and b. If we assume that e is the gcd of a and b, we know that e divides a and b. It follows since d divides a and b, e must divide d. By definition of the gcd, e can't be larger than d, so e must be less than or equal to d. But since e divides d, d can't be larger than e, so d must also be less than or equal to e. Thus, e and d must be equal, and our minimum positive d is indeed the gcd of a and b.
+
+Finally, we claim that d divides each integer c that can be expressed as a linear combination of a and b. Moreover, for each integer k, k times the gcd of a and b can be written as a linear combination of a and b with certain coefficients. This finally proves the Bézout's Identity, that the gcd of a and b can be expressed as a linear combination of a and b, and that each integer is a multiple of the gcd of a and b if and only if it can be written as a linear combination of a and b. Thus, the proof is complete.

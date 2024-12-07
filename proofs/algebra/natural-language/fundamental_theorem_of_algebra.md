@@ -1,0 +1,11 @@
+This proof is saying that for any polynomial, if the degree of the polynomial is greater than 0, then there exists a complex number c that is a root of the polynomial, and for every degree k within the range of 1 up to the degree of the polynomial, there's a complex root c with multiplicity k. Also, the total number of roots of the polynomial equals the degree of the polynomial.
+
+If we don't find a complex root c, this suggests that for all z there exists some s such that whenever the absolute value of z exceeds s, the absolute value of the polynomial is greater than twice the absolute value of the initial polynomial. We can also find a t such that the absolute value of the polynomial at t is the minimum across all z with an absolute value less or equal to s.
+
+We then define a new polynomial q(z) as p(z + t); this makes q(0) to be the absolute value of p(t). We can express q(z) in terms of the absolute value of p(t) plus a sum with index terms greater than m, where m equals the minimum degree for which the coefficient is nonzero in p(z).
+
+Now, we propose a value of r which depends on the first non-zero coefficient of our newly defined polynomial q(z). Using this r, we rewrite our q(z) and notice that its absolute value becomes less than the absolute value of the initial value at zero. But this leads to a contradiction, as by definition, q(0) should be the minimum. This means our initial assumption (that no complex root exists) must be wrong, and there indeed exists a complex root c for our initial polynomial.
+
+Once we have a root, we can express the polynomial as the product of a term involving root c, and a new polynomial q(z). The degree of this new polynomial is one less than that of our initial polynomial.
+
+We then use induction to articulate that for all n greater equal to 1, if a polynomial has degree n, it has exactly n roots (counting their multiplicities). This implies that the total number of roots of our starting polynomial equals its degree. Thus, this proof verifies the fundamental theorem of algebra.

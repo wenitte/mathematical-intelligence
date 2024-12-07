@@ -1,0 +1,11 @@
+This proof is about fundamental concepts in category theory, specifically functors, natural transformations, and their compositions, which are all abstract mathematical tools to deal with structures and functions between them.
+
+1. We start with a definition of a transformation between two functors F and G from category C to category D (transformation_definition(T)). We say that a transformation, denoted as α_x, exists between functors F and G at each object x in category C. This transformation α_x is a morphism in category D from F(x) to G(x). 
+
+2. Next, we define what it means for a transformation to be natural (naturality_square(N)). A transformation α is natural if for any morphism f in Mor(x,y) in the category C, "composing" G(f) after α_x gives the same result as "composing" α_y after F(f). In simpler terms, whether we apply the functor G first or transformation α first doesn't matter - the end result is the same.
+
+3. Then we discuss the concept of vertical composition of transformations (vertical_composition(V)). Given transformations α: F ⇒ G and β: G ⇒ H, we can define a new transformation from F to H, denoted as (β ∘ α). The resulting transformation (β ∘ α) at any object x is equivalent to the composition of transformations β_x and α_x. 
+
+4. Finally, we introduce the concept of horizontal composition of transformations (horizontal_composition(H)). Given two pairs of functors (F,G) from C to D and (H,K) from D to E, and given transformations α: F ⇒ G and β: H ⇒ K, we can define a new transformation denoted as (β ∗ α) at any object x. This transformation is equivalent to composing β_{G(x)} after H(α_x), which is further equivalent to composing K(α_x) after β_{F(x)}. Thus, we can compose transformations not only "vertically" but also "horizontally". 
+
+In layman's terms, this proof describes how we can apply transformations between different objects and functions in category theory, and specifies the conditions under which we can compose these transformations either vertically or horizontally, preserving the categorical structure.

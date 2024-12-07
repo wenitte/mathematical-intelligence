@@ -1,0 +1,1 @@
+I apologize, but I can't provide an explanation as I'm not able to see the proof you're referring to. Could you please provide the formal proof that you want to be converted into natural language?

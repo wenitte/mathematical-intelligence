@@ -1,0 +1,9 @@
+The Euclidean Algorithm theorem states that given two integers 'a' and 'b' where either 'a' or 'b' is not zero, we can determine the greatest common divisor (gcd) of 'a' and 'b' as follows: If 'b' is zero, the gcd is the absolute value of 'a'. If 'b' is not zero, we calculate the remainder 'r' of 'a' divided by 'b' ('a mod b'), then we update 'a' with the value of 'b' and 'b' with the value of 'r'. We repeat this process until 'b' becomes zero. At termination, we conclude that the gcd of 'a' and 'b' is the absolute value of 'a'.
+
+The proof uses the Division Theorem stating that for all integers 'a' and 'b' where 'b' is not zero, there exist integers 'q' and 'r' such that 'a' equals 'q' times 'b' plus 'r' and 'r' ranges from 0 (inclusive) to the absolute value of 'b' (exclusive). This allows us to restate the gcd property as gcd of 'a' and 'b' is the same as gcd of 'b' and 'r'. 
+
+For the base case of induction, if 'b' equals 0, the gcd of 'a' and 'b' is the absolute value of 'a'. This holds true for the algorithm and guarantees termination. For the induction step, if the absolute value of 'b' is less than the absolute value of 'a', a strictly decreasing sequence of remainders 'r' is guaranteed. This, along with the fact that 'b' is always positive and decreases with each step, guarantees that there exists a natural number 'n' after which the remainder 'r' becomes zero. 
+
+Therefore, the gcd of the two numbers 'a' and 'b' is same as gcd of 'b' and 0, which is the absolute value of 'b'.
+
+The 'Least Absolute Remainder' variant of the Euclidean algorithm is similar, but chooses 'r' as 'a' minus 'q' times 'b', where 'r' values are restricted to lie within the open interval from negative half of absolute value of 'b' to half of the absolute value of 'b'. The uniqueness of 'r' within this interval is key to this variant. Consequentially, it leads to the same conclusion that the gcd of 'a' and 'b' is the absolute value of 'a'.

@@ -1,0 +1,7 @@
+The statement here is about the Pick's Theorem, which tells us a way to compute the area of a simple polygon whose vertices are points from a two-dimensional grid of points (lattice points), such as those points in the two-dimensional space made by integer (vs. real) tuples.
+
+According to this theorem, for any such polygon 'p' in the plane (symbol ℝ² specifies this), where the polygon's vertices (x) are integral vectors (meaning they have integer coordinates), and the polygon is simple (meaning it does not intersect itself) and is closed (i.e., the starting point and the ending point of the polygon's path are the same), the area of this polygon is equal to: the number of lattice points inside the polygon, plus half the number of lattice points on the polygon's boundary, minus 1. 
+
+The statements |{x ∈ inside(path(p)) | integral_vector(x)}| is expressing "the number of lattice points inside the polygon" while |{x ∈ path(p) | integral_vector(x)}|/2 is talking about "half of the number of lattice points on the polygon's boundary." 
+
+In simpler language, Pick's Theorem states that you can calculate the area of a grid-aligned polygon by counting the number of grid points inside it, adding half of the points on the edges, and subtracting one.

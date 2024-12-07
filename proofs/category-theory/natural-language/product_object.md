@@ -1,0 +1,7 @@
+This mathematical proof is related to the category theory. It defines three main parts - product definition, universal property, and uniqueness proof.
+
+The "product definition" states that for the product 'P' to be considered legitimate, the following components must be available within the category 'C': objects 'a', 'b', and 'p', along with morphisms 'π₁' from 'p' to 'a' and 'π₂' from 'p' to 'b'.
+
+The "universal property" then asserts that for any object 'x' and for any pair of morphisms 'f' from 'x' to 'a' and 'g' from 'x' to 'b', there must be a unique morphism 'h' from 'x' to 'p'. In other words, composition of 'h' with 'π₁' must equal 'f', and composition of 'h' with 'π₂' must equal 'g'. This basically means that the product behaves as the most efficient "conduit" which relates object 'x' with objects 'a' and 'b'.
+
+Then comes the "uniqueness proof", which emphasizes on the equivalence or isomorphism of any two products 'p' and 'q' in the category 'C'. Here, both products must have related morphisms 'π₁ᵖ' (from 'p' to 'a'), 'π₂ᵖ' (from 'p' to 'b'), 'π₁ᵍ' (from 'q' to 'a'), and 'π₂ᵍ' (from 'q' to 'b'). For this equivalence to hold, there must exist unique morphisms 'f' from 'p' to 'q' and 'g' from 'q' to 'p', such that the composition of 'g' and 'f' results in the identity morphism of 'p' and composition of 'f' and 'g' results in the identity morphism of 'q'. In simpler terms, each product can be mapped onto the other without loss of structure or information. Hence, products 'p' and 'q' could be deemed as equivalent or isomorphic (p ≅ q).

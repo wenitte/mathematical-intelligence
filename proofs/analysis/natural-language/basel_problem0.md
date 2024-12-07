@@ -1,0 +1,11 @@
+This proof is quite complex and involves multiple layers. 
+
+The starting point is the Basel identity, a mathematical truth, which says the sum of the squares of the reciprocals of the odd integers (from zero onwards) equals an integral: in this case, the integral from 0 to 1, with an inner integral from 0 to the square root of (1-x^2), where dx and dy are multiplied and divided by (1-x^2*y^2). 
+
+Following this, the proof introduces a transformation function which, for every pair of numbers x and y from 0 to 1, calculates two new variables, u and v. This transformation is defined in terms of the trigonometric Atan function; in essence, it takes every pair of x and y values, computes new variable values u and v based on these x and y values through some arctangent and square root operations. 
+
+Then the proof contemplates a determinant (det) of a 2x2 matrix that, named as the Jacobian J, presents elements dealing with the transformation mentioned above. This determinant has a magnitude |J| equal to 1 - u^2*v^2. The Jacobian is a measure of the change in the two variables u and v when the original variables x and y are changed.
+
+The proof then outlines the measurement of a region area A. This area is the set of all (u, v) pairs where u and v are both greater than 0 and their sum is less than half Pi. The size of this area turns out to be π^2 / 8. We then have some statement expressed in integral terms saying that the evaluation of the earlier integral relating to the Basel identity is the same as another type of integral over the region A, a fact known as integral equivalence.
+
+Finally, we consider a relationship called the zeta relation. This expresses that the value of the zeta function at 2 is essentially attained by three-fourths of itself plus the sum of the inverses squares of all the natural numbers, minus the sum of the inverses squares of all even numbers, leading to the final conclusion that it equals π^2 / 6. The conclusion of this entire chain of reasoning is that the value of the zeta function at 2 equals π^2 / 6, indeed the solution to the Basel problem.

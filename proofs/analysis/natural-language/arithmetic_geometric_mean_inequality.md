@@ -1,0 +1,11 @@
+This theorem is known as the Arithmetic Mean-Geometric Mean (AM-GM) inequality. It states that for any positive integer n, and any subset of positive real numbers of size n, the arithmetic mean of the numbers in the subset will always be greater than or equal to the geometric mean of the numbers in the subset.
+
+The arithmetic mean of a subset of numbers is defined as the sum of all numbers in the subset divided by the size of the subset, and is guaranteed to be a positive real number. Similarly, the geometric mean of a subset (consisting of positive real numbers) is defined as the nth root of the product of all numbers in the subset, and is also guaranteed to be a positive real number.
+
+The proof for this theorem is typically demonstrated via mathematical induction and consists of two parts: the base case and the inductive step.
+
+In the base case, we consider a subset with just two positive real numbers, denoted by a1 and a2. We prove that the arithmetic mean of these two numbers (the sum of a1 and a2 divided by 2) is always greater than or equal to the geometric mean (the square root of the product of a1 and a2). This inequality further simplifies to show that the square of the difference of the two numbers is always non-negative. This establishes the base case.
+
+For the inductive step, we assume the theorem is true for a subset of size n, and proceed to prove it for a subset of size n+1. If for all subsets of n elements taken from the bigger set, the arithmetic mean is always greater than or equal to the geometric mean, it implies the sum of arithmetic mean of these sets is greater than or equal to the sum of geometric mean of these sets. Moreover, n times the arithmetic mean of the larger set (size n+1) is greater than or equal to (n+1) times the geometric mean of the larger set. All these conditions together make sure that the arithmetic mean of the larger set (size n+1) is indeed greater than or equal to the geometric mean of the larger set.
+
+Combining the base case and the inductive step concludes the proof for the AM-GM inequality, thereby asserting that the theorem is true.
