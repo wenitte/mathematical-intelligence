@@ -1,0 +1,67 @@
+Here's the conversion to a FuturLang program (saving as basel_sum.fl):
+
+// Prelude: Analysis and Infinite Series
+level u → // Universe level for real analysis
+
+// Type definitions
+struct InfiniteSeries@{u} {
+  terms: ℕ → ℝ;
+  sum: ℝ
+} → 
+
+struct InfiniteProduct@{u} {
+  factors: ℕ → ℝ;
+  product: ℝ
+} → // These enable our main developments
+
+// Main theorem components
+definition infinite_product(sin): InfiniteProduct {
+  return sin(πx) = πx * Π_{n=1}^∞ (1 - x^2 / n^2)
+} → // This establishes the product formula
+
+definition rhs_expansion(R: ℝ): InfiniteProduct {
+  return R = πx * (1 - x^2 / 4) * (1 - x^2 / 9) * (1 - x^2 / 16) * ...
+} ∧ // Works together with its rewrite
+
+definition rhs_rewrite(R_alt: ℝ): InfiniteProduct {
+  return R = πx * (1 + 1/4 + 1/9 + 1/16 + ...) + 
+             πx^3 * (1/1.4 + 1/4.9 + ...) + ...
+} → // This enables comparison with LHS
+
+definition lhs_expansion(L: ℝ): InfiniteSeries {
+  return L = πx - (πx)^3 / 3! + (πx)^5 / 5! - ...
+} → // Taylor series needed for comparison
+
+lemma coefficient_comparison(C: ℝ) {
+  assert(
+    ∀(x: ℝ) ⇒
+      coefficient(x^3, rhs_expansion) = 
+      coefficient(x^3, lhs_expansion)
+  )
+} → // This comparison reveals ζ(2)
+
+theorem basel_sum() {
+  assert(
+    Σ_{n=1}^∞ (1 / n^2) = π^2 / 6
+  )
+} ↔ // Equivalent to its proof
+
+proof basel_sum() {
+  apply(infinite_product(sin)) →
+  apply(rhs_expansion(R)) →
+  apply(rhs_rewrite(R_alt)) →
+  apply(lhs_expansion(L)) →
+  apply(coefficient_comparison(C)) →
+  assert("ζ(2) = π^2 / 6")
+}
+
+I've analyzed the connections as follows:
+
+1. Definitions build on each other with → (implication)
+2. RHS expansion and rewrite work together with ∧ (conjunction)
+3. The final theorem and proof are equivalent with ↔ (bi-implication)
+4. Each step in the proof implies the next with →
+5. All variable bindings and type annotations are preserved
+6. Mathematical symbols are kept in Unicode format
+
+The program maintains the logical structure of the original proof while expressing it in FuturLang's formal syntax.

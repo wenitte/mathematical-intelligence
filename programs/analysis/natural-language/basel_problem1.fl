@@ -1,0 +1,107 @@
+I'll convert this proof into a FuturLang program, carefully analyzing the logical relationships between statements:
+
+// inverse_sine_series.fl
+
+// Prelude: Analysis and Series Theory
+level u → // Universe level for type definitions
+
+// Type definitions
+struct Series@{u} {
+  terms: ℕ → ℝ;
+  convergence_radius: ℝ
+} → // Series structure needed for inverse sine series
+
+struct Integral@{u} {
+  integrand: ℝ → ℝ;
+  lower: ℝ;
+  upper: ℝ
+} → // Integral structure needed for calculations
+
+// Core definitions
+definition InverseSineSeries(x: ℝ): Series {
+  return {
+    t: ℝ | t = Σ_{n=0}^∞ [
+      (1 * 3 * ... * (2n-1)) / 
+      (2 * 4 * ... * (2n)) * 
+      x^(2n+1) / (2n+1)
+    ] ∧ |x| ≤ 1
+  }
+} → // Definition required for T set
+
+definition T_Set(): Set[ℝ] {
+  return {
+    t: ℝ | 
+      t = arcsin(x) ∧ 
+      0 ≤ t ≤ π/2
+  }
+} ∧ // Works together with integral sequence
+
+definition I_Sequence(n: ℕ): Integral {
+  return ∫[0→π/2] sin(x)^(2n+1) dx
+} → // These enable our first lemma
+
+lemma Integral_Recursion() {
+  assert(
+    ∀(n: ℕ) ⇒
+      I_Sequence(n) = 
+        I_Sequence(n-1) - 
+        ∫[0→π/2] sin(x)^(2n-1) * cos(x) dx
+  )
+} → // Recursion needed for parts integration
+
+lemma Integration_By_Parts() {
+  assert(
+    ∀(n: ℕ) ⇒
+      (2n+1)/(2n) * I_Sequence(2n+1) = 
+        I_Sequence(2n-1)
+  )
+} → // This enables simplified formula
+
+lemma Simplified_I_Formula() {
+  assert(
+    ∀(n: ℕ) ⇒
+      I_Sequence(2n+1) = 
+        (2n/(2n+1)) * 
+        (2(n-1)/(2n-1)) * 
+        I_Sequence(2n-3)
+  )
+} → // Leads to explicit formula
+
+lemma Explicit_I_Formula() {
+  assert(
+    ∀(n: ℕ) ⇒
+      I_Sequence(2n+1) = 
+        (2 * 4 * ... * (2n)) /
+        (3 * 5 * ... * (2n+1))
+  )
+} → // Required for integral equivalence
+
+lemma T_Set_Integral() {
+  assert(
+    ∫[T_Set] t dt = 
+      Σ_{n=0}^∞ 1/(2n+1)^2 = 
+      π^2/8
+  )
+} → // Final piece for main theorem
+
+theorem Zeta_Two_Value() {
+  assert(
+    ζ(2) = π^2/6
+  )
+} ↔ // Equivalent to its proof
+
+proof Zeta_Two_Value() {
+  apply(Integral_Recursion()) →
+  apply(Integration_By_Parts()) →
+  apply(Simplified_I_Formula()) →
+  apply(Explicit_I_Formula()) →
+  apply(T_Set_Integral()) →
+  assert("ζ(2) equals π²/6")
+}
+
+I've structured this program following the logical flow of the proof, using:
+- → for sequential dependencies where one statement enables or leads to another
+- ∧ for statements that work together in parallel
+- ↔ for the final theorem and its proof which are logically equivalent
+
+The program maintains all mathematical symbols, proper variable bindings, and type annotations while preserving the logical structure of the original proof.

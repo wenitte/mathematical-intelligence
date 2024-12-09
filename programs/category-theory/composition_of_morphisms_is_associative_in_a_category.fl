@@ -1,0 +1,87 @@
+I'll convert this proof into a FuturLang program, carefully analyzing the logical relationships between statements.
+
+// morphism_associativity.fl
+
+// Universe levels for type safety
+level u, v →
+
+// Core category structure definition
+struct Category@{u} {
+  objects: Set@{u};
+  morphisms: Set@{u};
+  composition: Binary_Op@{u}
+} →
+
+// Morphism type with explicit domain and codomain
+struct Morphism@{u} {
+  dom: Category.objects;
+  cod: Category.objects;
+  map: Function@{u}
+} →
+
+// Main theorem statement
+theorem morphism_associativity(C: Category) {
+  assert(
+    ∀(f: Morphism, g: Morphism, h: Morphism) ⇒
+      (
+        cod(f) = dom(g) ∧
+        cod(g) = dom(h) →
+        (h ∘ g) ∘ f = h ∘ (g ∘ f)
+      )
+  )
+} ↔ // Equivalence with category definition
+
+definition category_definition(C: Category): 𝔹 {
+  return (
+    // Composition axiom
+    ∀(f: C.morphisms, g: C.morphisms) ⇒
+      (cod(f) = dom(g) → ∃(g ∘ f: C.morphisms)) ∧
+    // Identity axiom
+    ∀(a: C.objects) ⇒ ∃(id_a: C.morphisms) ⇒
+      (
+        dom(id_a) = a ∧
+        cod(id_a) = a ∧
+        ∀(f: C.morphisms) ⇒
+          (id_a ∘ f = f ∧ f ∘ id_a = f)
+      )
+  )
+} → // Enables composition lemma
+
+lemma composition_exists(C: Category) {
+  assert(
+    ∀(f: C.morphisms, g: C.morphisms, h: C.morphisms) ⇒
+      (
+        // Well-defined composition condition
+        cod(f) = dom(g) →
+        ∃(g ∘ f: C.morphisms)
+      ) ∧
+      (
+        // Existence equivalence for nested compositions
+        ∃(h ∘ (g ∘ f)) ↔ ∃((h ∘ g) ∘ f)
+      )
+  )
+} → // Required for main proof
+
+proof associativity_proof() {
+  setVar(x: dom(f)) →
+  // Chain of equalities showing associativity
+  assert(
+    ((h ∘ g) ∘ f)(x) = (h ∘ g)(f(x)) ∧
+    (h ∘ g)(f(x)) = h(g(f(x))) ∧
+    h(g(f(x))) = h((g ∘ f)(x)) ∧
+    h((g ∘ f)(x)) = (h ∘ (g ∘ f))(x)
+  ) →
+  // Conclude equality
+  assert((h ∘ g) ∘ f = h ∘ (g ∘ f))
+}
+
+I've structured this program to maintain the logical flow of the original proof while making the relationships explicit:
+
+1. The type definitions are connected by → as each builds on the previous
+2. The main theorem is equivalent (↔) to its definition in terms of category theory
+3. The category definition enables (→) the composition lemma
+4. The composition lemma is required for (→) the associativity proof
+5. Within the proof, steps are connected by → to show sequential reasoning
+6. The final assertion concludes the chain of reasoning
+
+Each statement preserves the mathematical content while making the logical structure explicit through appropriate connectives.

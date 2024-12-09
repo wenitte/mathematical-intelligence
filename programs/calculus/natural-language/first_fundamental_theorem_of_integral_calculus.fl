@@ -1,0 +1,88 @@
+I'll convert this into a FuturLang program, carefully analyzing the logical connections between statements:
+
+// ftc1.fl
+
+// Prelude: Real Analysis Framework
+level u → // Universe level for real number constructions
+
+// Type definitions
+struct ContinuousFunction {
+  domain: Interval[ℝ];
+  f: ℝ → ℝ;
+  continuous: ∀(x ∈ domain) → lim(h → 0)[f(x+h) = f(x)]
+} → // Structure needed for integration definition
+
+struct IntegralFunction {
+  base: ContinuousFunction;
+  F: ℝ → ℝ;
+  C: ℝ  // Lower bound constant
+} → // Enables definition of F(x) as integral
+
+// Core definitions required for FTC1
+definition IntegralOf(f: ContinuousFunction, C: ℝ, x: ℝ): ℝ {
+  return ∫[C to x] f(t) dt
+} → // Definition needed for F(x)
+
+definition DerivativeAt(F: ℝ → ℝ, x: ℝ): ℝ {
+  return lim(h → 0)[(F(x+h) - F(x))/h]
+} → // Essential for derivative computation
+
+// Mean Value Theorem for Integrals
+lemma MVT_Integral(f: ContinuousFunction, x: ℝ, h: ℝ) {
+  assert(
+    ∃(k ∈ [x, x+h]) →
+      ∫[x to x+h] f(t) dt = f(k)⋅h
+  )
+} → // Key component for derivative evaluation
+
+// Main theorem: First Fundamental Theorem of Calculus
+theorem FTC1() {
+  assert(
+    ∀(f: ContinuousFunction) →
+      ∀(x ∈ f.domain) →
+        let F(x) = IntegralOf(f, C, x) in
+          DerivativeAt(F, x) = f(x)
+  )
+} ↔ // Equivalent to its proof
+
+proof FTC1() {
+  setVar(f: ContinuousFunction) →
+  setVar(x: ℝ, f.domain) →
+  setVar(F: ℝ → ℝ, λt. IntegralOf(f, C, t)) →
+  
+  // Derivative definition step
+  assert(
+    DerivativeAt(F, x) = 
+      lim(h → 0)[(∫[x to x+h] f(t) dt)/h]
+  ) ∧ // Connects with MVT application
+  
+  // Apply Mean Value Theorem
+  apply(MVT_Integral(f, x, h)) →
+  assert(
+    ∃(k ∈ [x, x+h]) →
+      DerivativeAt(F, x) = lim(h → 0)[f(k)]
+  ) ∧ // Works together with continuity
+  
+  // Apply continuity of f
+  assert(
+    lim(h → 0)[f(k)] = f(x)
+  ) → // Final step to conclusion
+  
+  // Conclude FTC1
+  assert(
+    DerivativeAt(F, x) = f(x)
+  )
+}
+
+Key logical connection analysis:
+1. Type definitions use → as each builds on previous
+2. Core definitions use → as they enable subsequent proofs
+3. MVT lemma → main theorem as it's required for the proof
+4. Main theorem ↔ proof as they are logically equivalent
+5. Within proof:
+   - Initial variable settings → next steps
+   - Derivative definition ∧ MVT as they work together
+   - MVT application ∧ continuity as they combine
+   - Final steps → conclusion in sequence
+
+The program preserves the mathematical rigor while making explicit the logical relationships between statements.

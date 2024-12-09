@@ -1,0 +1,79 @@
+I'll convert this proof into a FuturLang program, carefully analyzing the logical relationships between statements:
+
+// arithmetic_series_sum.fl
+
+// Type definitions for arithmetic sequences
+struct ArithmeticSequence {
+  a₁: ℝ;     // First term
+  d: ℝ;      // Common difference
+  n: ℕ;      // Number of terms
+} → // Structure needed for subsequent definitions
+
+// Core definitions
+definition nthTerm(seq: ArithmeticSequence): ℝ {
+  return seq.a₁ + (seq.n - 1) * seq.d
+} → // Required for sum formula
+
+definition SeriesSum(seq: ArithmeticSequence): ℝ {
+  return sum(k = 1 to seq.n) {
+    seq.a₁ + (k - 1) * seq.d
+  }
+} → // Main concept being proved
+
+// First step: Writing series in forward and reverse order
+lemma DualRepresentation() {
+  assert(
+    ∀(seq: ArithmeticSequence) ⇒
+      (
+        SeriesSum(seq) = 
+          (seq.a₁ + (seq.a₁ + d) + ... + aₙ) ∧
+        SeriesSum(seq) = 
+          (aₙ + (aₙ - d) + ... + seq.a₁)
+      )
+  )
+} → // This representation enables the next step
+
+// Second step: Adding the two representations
+lemma SumFormula1() {
+  assert(
+    ∀(seq: ArithmeticSequence) ⇒
+      (
+        2 * SeriesSum(seq) = seq.n * (seq.a₁ + nthTerm(seq)) →
+        SeriesSum(seq) = (seq.n/2) * (seq.a₁ + nthTerm(seq))
+      )
+  )
+} ∧ // Works in parallel with alternative form
+
+// Third step: Substituting nth term formula
+lemma SumFormula2() {
+  assert(
+    ∀(seq: ArithmeticSequence) ⇒
+      SeriesSum(seq) = 
+        (seq.n/2) * (2*seq.a₁ + (seq.n - 1)*seq.d)
+  )
+} → // Both forms lead to main theorem
+
+theorem ArithmeticSeriesSum() {
+  assert(
+    ∀(seq: ArithmeticSequence) ⇒
+      (
+        SeriesSum(seq) = (seq.n/2) * (seq.a₁ + nthTerm(seq)) ↔
+        SeriesSum(seq) = (seq.n/2) * (2*seq.a₁ + (seq.n - 1)*seq.d)
+      )
+  )
+} ↔ // Equivalent to its proof
+
+proof ArithmeticSeriesSum() {
+  setVar(seq: ArithmeticSequence) →
+  apply(DualRepresentation()) →
+  apply(SumFormula1()) →
+  apply(SumFormula2()) →
+  assert("Both forms are equivalent and represent the sum of the arithmetic series")
+}
+
+I've used the following logical connectives:
+- → for sequential dependencies where one statement enables or leads to the next
+- ∧ for parallel statements that work together
+- ↔ for equivalent formulations of the same concept
+
+The program maintains the structure of the original proof while formalizing it in FuturLang syntax. Each component builds on previous ones, with clear type annotations and preserved mathematical symbols. The logical flow moves from definitions through lemmas to the final theorem and its proof.

@@ -1,0 +1,130 @@
+I'll convert this proof into a FuturLang program, carefully analyzing the logical relationships between statements.
+
+// abel_ruffini.fl
+
+// Universe levels for type system
+level u, v →
+
+// Core algebraic structures
+struct Field@{u} {
+  carrier: Set@{u};
+  operations: {add, sub, mul, div}
+} →
+
+struct PermutationGroup@{u} {
+  elements: Set@{u};
+  operation: Binary_Operation
+} →
+
+struct GaloisGroup@{u} {
+  field: Field@{u};
+  automorphisms: PermutationGroup@{u}
+} → 
+
+// Fundamental definitions
+definition RadicalSolution(p: Polynomial): 𝔹 {
+  return ∃(expr: Expression) ⇒
+    (
+      expr.operations ⊆ {add, sub, mul, div, nth_root} ∧
+      expr solves p
+    )
+} →
+
+definition SymmetricGroup(n: ℕ): PermutationGroup {
+  return {
+    σ: Permutation |
+      σ permutes {1..n}
+  }
+} ∧
+
+definition AlternatingGroup(n: ℕ): PermutationGroup {
+  return {
+    σ: SymmetricGroup(n) |
+      σ.sign = 1
+  }
+} →
+
+// Key lemmas establishing group properties
+lemma Symmetric_Group_Properties(n: ℕ) {
+  assert(
+    n ≥ 5 →
+    (
+      ∃(An: AlternatingGroup(n)) ⇒
+        (An.simple ∧ ¬An.abelian)
+    )
+  )
+} →
+
+lemma Galois_Group_Isomorphism() {
+  assert(
+    ∀(P: GenericPolynomial(n)) ⇒
+      (
+        n ≥ 5 →
+        GaloisGroup(P) ≅ SymmetricGroup(n)
+      )
+  )
+} →
+
+// Core theorem components
+lemma Non_Solvable_Symmetric_Group() {
+  assert(
+    ∀(n: ℕ) ⇒
+      (
+        n ≥ 5 →
+        ¬(SymmetricGroup(n).solvable)
+      )
+  )
+} ∧
+
+lemma Radical_Solvability_Criterion() {
+  assert(
+    ∀(P: Polynomial) ⇒
+      (
+        RadicalSolution(P) →
+        GaloisGroup(P).solvable
+      )
+  )
+} →
+
+// Main theorem
+theorem Abel_Ruffini() {
+  assert(
+    ∀(n: ℕ) ⇒
+      (
+        n ≥ 5 →
+        ∃(P: Polynomial) ⇒
+          (
+            Degree(P) = n ∧
+            ¬(RadicalSolution(P))
+          )
+      )
+  )
+} ↔
+
+// Main proof
+proof Abel_Ruffini() {
+  setVar(n: ℕ, n ≥ 5) →
+  setVar(P: GenericPolynomial(n)) →
+  apply(Galois_Group_Isomorphism()) →
+  apply(Non_Solvable_Symmetric_Group()) →
+  apply(Radical_Solvability_Criterion()) →
+  assert(
+    (
+      GaloisGroup(P) ≅ SymmetricGroup(n) ∧
+      ¬(SymmetricGroup(n).solvable) ∧
+      ¬(GaloisGroup(P).solvable) →
+      ¬(RadicalSolution(P))
+    )
+  )
+}
+
+I've structured the program with:
+1. Basic type definitions for fields and groups (→ connective as each enables the next)
+2. Core definitions of radical solutions and groups (mixture of → and ∧ based on dependencies)
+3. Key lemmas about group properties (→ connective as each builds on previous)
+4. Main theorem and proof (↔ connective between theorem and proof as they're equivalent)
+
+The logical connectives were chosen based on:
+- → when one statement enables or leads to another
+- ∧ when statements work together in parallel
+- ↔ for theorem-proof equivalence

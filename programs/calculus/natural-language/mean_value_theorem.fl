@@ -1,0 +1,114 @@
+I'll convert this proof into a FuturLang program, carefully analyzing the logical connections between statements:
+
+// mean_value_theorem.fl
+
+// Prelude: Real Analysis fundamentals
+level u → // Universe level for real number types
+
+// Type definitions for function properties
+struct ContinuousFunction {
+  domain: Interval[ℝ];
+  f: ℝ → ℝ;
+  continuous: 𝔹
+} → // Needed for differentiable functions
+
+struct DifferentiableFunction {
+  base: ContinuousFunction;
+  derivative: ℝ → ℝ;
+  differentiable: 𝔹
+} → // These enable our auxiliary definitions
+
+// Helper definitions
+definition LineSlope(a: ℝ, b: ℝ, f: ℝ → ℝ): ℝ {
+  return (f(b) - f(a))/(b - a)
+} → // Required for constructing g(x)
+
+definition AuxiliaryFunction(f: ℝ → ℝ, a: ℝ, b: ℝ): ℝ → ℝ {
+  return λx. 
+    f(x) - LineSlope(a, b, f) * x - (f(a) - LineSlope(a, b, f) * a)
+} ∧ // Works together with its properties
+
+lemma AuxiliaryProperties() {
+  assert(
+    ∀(f: DifferentiableFunction) ⇒
+    ∀(a: ℝ) ⇒
+    ∀(b: ℝ) ⇒
+    (a < b) →
+      let g = AuxiliaryFunction(f, a, b) in
+        (
+          g(a) = 0 ∧
+          g(b) = 0 ∧
+          g.continuous ∧
+          g.differentiable
+        )
+  )
+} → // These properties enable Rolle's theorem application
+
+theorem RollesTheorem() {
+  assert(
+    ∀(f: DifferentiableFunction) ⇒
+    ∀(a: ℝ) ⇒
+    ∀(b: ℝ) ⇒
+      (
+        (a < b) ∧
+        f(a) = f(b) ∧
+        f.continuous ∧
+        f.differentiable
+      ) →
+        ∃(c: ℝ) ⇒
+          (
+            a < c < b ∧
+            f'(c) = 0
+          )
+  )
+} → // Required for MVT proof
+
+theorem MeanValueTheorem() {
+  assert(
+    ∀(f: DifferentiableFunction) ⇒
+    ∀(a: ℝ) ⇒
+    ∀(b: ℝ) ⇒
+      (
+        (a < b) ∧
+        f.continuous ∧
+        f.differentiable
+      ) →
+        ∃(c: ℝ) ⇒
+          (
+            a < c < b ∧
+            f'(c) = LineSlope(a, b, f)
+          )
+  )
+} ↔ // Equivalent to its proof
+
+proof MeanValueTheorem() {
+  setVar(f: DifferentiableFunction) →
+  setVar(a: ℝ) →
+  setVar(b: ℝ) →
+  assume(a < b) →
+  
+  let g = AuxiliaryFunction(f, a, b) →
+  apply(AuxiliaryProperties()) →
+  apply(RollesTheorem()) →
+  
+  setVar(c: ℝ) →
+  assert(
+    (
+      a < c < b ∧
+      g'(c) = 0 ∧
+      f'(c) = LineSlope(a, b, f)
+    )
+  )
+}
+
+I've structured this program to follow the logical flow of the Mean Value Theorem proof, with careful attention to:
+
+1. Proper type definitions for continuous and differentiable functions
+2. Helper definitions for the auxiliary function g(x) and line slope
+3. Clear statement of Rolle's Theorem as a prerequisite
+4. Logical connectives that reflect true dependencies:
+   - → for sequential implications
+   - ∧ for parallel/concurrent conditions
+   - ↔ for equivalent statements
+
+The main theorem and its proof are connected by ↔ since they are logically equivalent. Within the proof, statements are mostly connected by → to show the sequential nature of the argument, while conditions that must hold simultaneously are connected by ∧.

@@ -1,0 +1,112 @@
+I'll convert this into a FuturLang program, carefully analyzing the logical relationships between statements.
+
+// basel_problem.fl
+
+// Universe levels for type safety
+level u, v →
+
+// Type definitions for complex analysis
+struct Complex {
+  re: ℝ;
+  im: ℝ
+} →
+
+struct ContourIntegral {
+  path: Set[Complex];
+  integrand: Complex → Complex
+} →
+
+// Core function definition establishes base for proof
+definition SeriesFunction(x: ℝ): ℝ {
+  return πx⁻²cot(πx)
+} ∧ // Paired with its poles
+definition PoleSet(): Set[ℤ] {
+  return {x ∈ ℤ | cot(πx) → ∞}
+} → // Required for residue calculation
+
+definition ResidueCalculation(x: ℤ): ℝ {
+  return match x {
+    case 0 => −π²/3
+    case n => 1/n²
+  }
+} → // Needed for contour definition
+
+definition ContourPath(N: ℕ): Set[Complex] {
+  return {
+    z: Complex |
+      ∃k ∈ {±1} ⇒
+        ∃m ∈ {±1} ⇒
+          z = (k + mi)(N + 1/2)
+  }
+} → // Enables residue theorem application
+
+lemma ResidueIdentity(N: ℕ) {
+  assert(
+    −π²/3 + 2Σ_{n=1}^N 1/n² = 
+    (1/2πi) ∮_{ContourPath(N)} SeriesFunction(z) dz
+  )
+} → // Fundamental for convergence proof
+
+lemma CotangentBound() {
+  assert(
+    ∀(z: Complex) ⇒
+      |cot(πz)|² = 
+        (cos²(Re(z)) + sinh²(Im(z))) /
+        (sin²(Re(z)) + sinh²(Im(z)))
+  )
+} → // Required for edge bounds
+
+lemma VerticalEdgeBounds(N: ℕ) {
+  assert(
+    ∀(z: Complex) ⇒
+      z ∈ vertical_edges(ContourPath(N)) →
+        (|cot(πz)|² = sinh²(Im(z))/(1 + sinh²(Im(z))) ∧
+         |cot(πz)|² < 1)
+  )
+} ∧ // Works together with horizontal bounds
+
+lemma HorizontalEdgeBounds(N: ℕ) {
+  assert(
+    ∀(z: Complex) ⇒
+      z ∈ horizontal_edges(ContourPath(N)) →
+        (|cot(πz)|² ≤ coth²π(N + 1/2) ∧
+         coth²π(N + 1/2) < coth²(π/2))
+  )
+} → // These bounds enable function boundedness
+
+lemma FunctionBounds(N: ℕ) {
+  setVar(K: ℝ, coth(π/2)) →
+  assert(
+    ∀(z: Complex) ⇒
+      z ∈ ContourPath(N) →
+        (|cot(πz)| ≤ K ∧
+         |SeriesFunction(z)| ≤ (πK)/(N + 1/2)²)
+  ) →
+  assert(
+    |IntegralValue(N)| ≤ 
+      (8πK(N + 1/2))/(2π(N + 1/2)²)
+  )
+} → // Final step for main theorem
+
+theorem BaselProblem() {
+  assert(
+    (lim_{N → ∞} IntegralValue(N) = 0) →
+    (ζ(2) = π²/6)
+  )
+} ↔ // Equivalent to complete proof
+
+proof BaselProblem() {
+  apply(ResidueIdentity()) →
+  apply(CotangentBound()) →
+  apply(VerticalEdgeBounds()) →
+  apply(HorizontalEdgeBounds()) →
+  apply(FunctionBounds()) →
+  assert("ζ(2) = π²/6")
+}
+
+I've analyzed each connection and used:
+- → for sequential logical dependencies
+- ∧ for parallel/complementary statements
+- ↔ for equivalent statements or definitions with their proofs
+
+The program maintains the logical structure of the original proof while adding type safety and explicit variable bindings in FuturLang syntax.

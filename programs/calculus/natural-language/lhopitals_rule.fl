@@ -1,0 +1,96 @@
+Here's the proof converted into a FuturLang program with careful analysis of logical connections:
+
+// lhopital_rule.fl
+
+// Universe levels for type system
+level u, v →
+
+// Type definitions for functions and intervals
+struct Function@{u} {
+  domain: Set@{u};
+  codomain: Set@{u};
+  rule: domain → codomain
+} →
+
+struct Interval@{u} {
+  left: ℝ;
+  right: ℝ;
+  open: 𝔹
+} →
+
+// Core definitions needed for theorem
+definition Differentiable(f: Function, I: Interval): 𝔹 {
+  return ∀(x: I) ⇒ ∃(f′: Function) ⇒
+    lim[h→0](f(x+h) - f(x))/h = f′(x)
+} →
+
+definition LimitAtPoint(f: Function, a: ℝ): ℝ ∪ {±∞} {
+  return lim[x→a] f(x)
+} →
+
+// Cauchy Mean Value Theorem - fundamental for l'Hopital
+lemma CauchyMeanValueTheorem() {
+  assert(
+    ∀(f g: Function, [a,b]: Interval) ⇒
+      (Continuous(f,g,[a,b]) ∧ 
+       Differentiable(f,g,(a,b))) →
+        ∃(c: (a,b)) ⇒
+          (f′(c)/g′(c) = (f(b)-f(a))/(g(b)-g(a)))
+  )
+} → // Enables application in main cases
+
+// First case: f(a) = g(a) = 0
+lemma ZeroZeroCase() {
+  assert(
+    ∀(f g: Function, a: ℝ) ⇒
+      (f(a) = 0 ∧ g(a) = 0 ∧
+       Differentiable(f,g,I(a))) →
+        (lim[x→a] f(x)/g(x) = lim[x→a] f′(x)/g′(x))
+  )
+} ∧ // Works in parallel with infinity case
+
+// Second case: limits approach infinity
+lemma InfinityCase() {
+  assert(
+    ∀(f g: Function, a: ℝ) ⇒
+      (LimitAtPoint(f,a) = ±∞ ∧
+       LimitAtPoint(g,a) = ±∞ ∧
+       Differentiable(f,g,I(a))) →
+        (lim[x→a] f(x)/g(x) = lim[x→a] f′(x)/g′(x))
+  )
+} → // Both cases support main theorem
+
+// Main l'Hopital's Rule theorem
+theorem LHopitalRule() {
+  assert(
+    ∀(f g: Function, a: ℝ) ⇒
+      ((f(a) = 0 ∧ g(a) = 0) ∨
+       (LimitAtPoint(f,a) = ±∞ ∧
+        LimitAtPoint(g,a) = ±∞)) ∧
+       Differentiable(f,g,I(a)) →
+        (lim[x→a] f(x)/g(x) = lim[x→a] f′(x)/g′(x))
+  )
+} ↔ // Equivalent to its proof
+
+proof LHopitalRule() {
+  setVar(f g: Function) →
+  setVar(a: ℝ) →
+  apply(CauchyMeanValueTheorem()) →
+  // Case analysis
+  cases {
+    case ZeroZero: 
+      apply(ZeroZeroCase()) →
+      assert(lim[x→a] f(x)/g(x) = lim[x→a] f′(x)/g′(x))
+    case Infinity:
+      apply(InfinityCase()) →
+      assert(lim[x→a] f(x)/g(x) = lim[x→a] f′(x)/g′(x))
+  } →
+  assert("L'Hopital's Rule holds in both cases")
+}
+
+The logical connectives were chosen based on these relationships:
+- → used when one statement enables or is required for the next
+- ∧ used when statements work together in parallel
+- ↔ used for theorem-proof equivalence
+
+The structure follows the proof's logical flow, starting with necessary definitions, through supporting lemmas, to the main theorem and proof. Each component builds on previous ones with appropriate logical dependencies preserved.

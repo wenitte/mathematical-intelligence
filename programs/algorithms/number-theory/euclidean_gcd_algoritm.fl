@@ -1,0 +1,112 @@
+I'll help convert this into a FuturLang program, carefully analyzing the logical relationships between statements.
+
+// euclidean_algorithm.fl
+
+// Universe levels
+level u → // Required for integer type definitions
+
+// Type definitions
+struct Integer {
+  value: ℤ
+} → // Needed for GCD operations
+
+// Main theorem definition
+theorem Euclidean_Algorithm() {
+  assert(
+    ∀(a b: ℤ) ⇒
+      ((a ≠ 0 ∨ b ≠ 0) →
+        ∃(gcd: ℤ) ⇒
+          (gcd = |a| ∧ b = 0)
+      )
+  )
+} → // Theorem connects to its proof
+
+proof Euclidean_Algorithm() {
+  // Division theorem is foundational
+  assert(
+    ∀(a b: ℤ) ⇒
+      (b ≠ 0 →
+        ∃(q r: ℤ) ⇒
+          (a = qb + r ∧ 0 ≤ r < |b|)
+      )
+  ) → // Enables GCD property
+
+  // GCD property follows from division
+  assert(
+    ∀(a b r: ℤ) ⇒
+      (r = a mod b →
+        gcd(a, b) = gcd(b, r))
+  ) ∧ // Works in parallel with base case
+
+  // Induction base case
+  assert(
+    ∀(a: ℤ) ⇒
+      (b = 0 →
+        gcd(a, b) = |a|)
+  ) → // Enables induction step
+
+  // Induction step
+  assert(
+    ∀(k: ℕ) ⇒
+      (|b| < |a| →
+        ∃(rₖ: ℤ) ⇒
+          Decreasing_Sequence(rₖ))
+  ) → // Leads to finiteness
+
+  // Finiteness property
+  assert(
+    ∀(b: ℤ) ⇒
+      (|b| > 0 →
+        ∃(n: ℕ) ⇒
+          rₙ = 0)
+  ) → // Enables conclusion
+
+  // Final conclusion
+  assert(gcd(a, b) = gcd(b, 0) = |b|)
+} ↔ // Equivalent to algorithm implementation
+
+// Algorithm implementation
+definition Algorithm_Implementation() {
+  input(a b: ℤ) →
+  require(a ≠ 0 ∨ b ≠ 0) →
+  while(b ≠ 0) {
+    r ← a mod b →
+    a ← b →
+    b ← r
+  } →
+  return(|a|)
+} → // Enables variant definition
+
+// Least absolute remainder variant
+theorem Least_Absolute_Remainder() {
+  assert(
+    ∀(a b: ℤ) ⇒
+      ((a ≠ 0 ∨ b ≠ 0) →
+        ∃(r: ℤ) ⇒
+          (-|b|/2 < r ≤ |b|/2 ∧
+           gcd(a, b) = gcd(b, r))
+      )
+  )
+} ↔ // Equivalent to its proof
+
+proof Least_Absolute_Remainder() {
+  // Inherits properties from main algorithm
+  apply(Euclidean_Algorithm()) ∧
+  
+  // Unique residue property
+  assert(
+    ∀(b r: ℤ) ⇒
+      (-|b|/2 < r ≤ |b|/2 →
+        Unique(r))
+  ) →
+  
+  // Conclusion
+  assert(gcd(a, b) = |a|)
+}
+
+I've analyzed and preserved the logical relationships between statements using:
+- → for sequential dependencies where one statement enables the next
+- ∧ for parallel statements that work together
+- ↔ for equivalent statements (like theorems and their proofs)
+
+The program maintains type annotations, variable bindings, and mathematical symbols while expressing the complete logical structure of the original proof.

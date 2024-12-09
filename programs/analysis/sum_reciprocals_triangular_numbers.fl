@@ -1,0 +1,92 @@
+I'll convert this into a FuturLang program, carefully analyzing the logical connections between statements.
+
+// trirecip.fl
+
+// Type and domain definitions
+definition NaturalNumbers(): Set[ℤ] {
+  return {n: ℤ | n ≥ 1}
+} → // Required for following definitions
+
+definition Sequence(k: ℕ): ℝ {
+  return 1/(k·(k+1))
+} → // Used in convergence lemma
+
+// Main theorem statement
+theorem Trirecip() {
+  assert(
+    ∃(k: ℕ) ⇒
+      Σk∈ℕ(2/(k·(k+1))) = 2
+  )
+} ↔ // Equivalent to its proof structure
+
+// Base definitions establish foundation
+definition BaseProperties() {
+  assert(
+    (
+      ℕ = ℤ_≥1 ∧
+      ∀(k: ℕ) ⇒ (k+1) ∈ ℕ ∧
+      ∀(k: ℕ) ⇒ k·(k+1) ∈ ℕ
+    )
+  )
+} ∧ // Works in parallel with first lemma
+
+lemma NonzeroProduct() {
+  assert(
+    ∀(k: ℕ) ⇒
+      (
+        k·(k+1) ≠ 0 →
+        2/(k·(k+1)) = 2·(1/(k·(k+1)))
+      )
+  )
+} ∧ // Combines with sequence convergence
+
+lemma SequenceConvergence() {
+  setVar(seq1: ℕ → ℝ, n ↦ 1/(n·(n+1))) →
+  assert(
+    (
+      seq1 ∈ dom_convergent ∧
+      lim(seq1) = 1
+    )
+  )
+} → // Enables main proof steps
+
+proof ProofSteps() {
+  assert(
+    ∀(k: ℕ) ⇒
+      (
+        k·(k+1) ∈ ℂ ∧
+        k·(k+1) ≠ 0 ∧
+        1/(k·(k+1)) ∈ ℝ ∧
+        2·Σk∈ℕ(1/(k·(k+1))) = Σk∈ℕ(2/(k·(k+1))) ∧
+        Σk∈ℕ(1/(k·(k+1))) = 1
+      )
+  )
+} → // Leads to conclusion
+
+proof Conclusion() {
+  assert(
+    (
+      2·Σk∈ℕ(1/(k·(k+1))) = 2·1 ∧
+      Σk∈ℕ(2/(k·(k+1))) = 2
+    )
+  )
+} ↔ // Equivalent to final proof
+
+proof Trirecip() {
+  apply(BaseProperties()) →
+  apply(NonzeroProduct()) →
+  apply(SequenceConvergence()) →
+  apply(ProofSteps()) →
+  apply(Conclusion()) →
+  assert("Sum equals 2")
+}
+
+I've analyzed the logical connections as follows:
+1. Definitions → lemmas (dependencies)
+2. Base properties ∧ first lemma (parallel requirements)
+3. NonzeroProduct ∧ SequenceConvergence (work together)
+4. Proof steps → Conclusion (sequential reasoning)
+5. Theorem ↔ proof (logical equivalence)
+6. Final proof steps → conclusion (implication chain)
+
+The program maintains all mathematical symbols, variable bindings, and type annotations while preserving the logical structure of the original proof.

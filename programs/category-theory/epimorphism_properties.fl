@@ -1,0 +1,78 @@
+I'll help convert this proof into a FuturLang program, analyzing the logical connections between statements and preserving the mathematical notation.
+
+// epi.fl
+
+// Universe levels for type safety
+level u, v →
+
+// Basic category theory structures
+struct Category@{u} {
+  objects: Set@{u};
+  morphisms: Set@{u}
+} →
+
+struct Morphism@{u} {
+  source: Object@{u};
+  target: Object@{u}
+} → 
+
+// Core definitions
+definition epi_definition(E: Morphism, C: Category): 𝔹 {
+  return ∀(e: Morphism) ⇒
+    (
+      e ∈ Mor(a,b) ∧
+      ∀(x: Object(C)) ⇒
+        ∀(f,g: Mor(b,x)) ⇒
+          (f ∘ e = g ∘ e → f = g)
+    )
+} → // Definition enables right cancellation property
+
+lemma right_cancellation() {
+  assert(
+    ∀(e: Morphism) ⇒
+      (
+        e ∈ Mor(a,b) ∧
+        is_epi(e)
+      ) ↔
+      ∀(f,g: Mor(b,x)) ⇒
+        (f ∘ e = g ∘ e → f = g)
+  )
+} → // Right cancellation enables composition property
+
+lemma composition_epi() {
+  assert(
+    ∀(e₁: Mor(a,b), e₂: Mor(b,c)) ⇒
+      (
+        is_epi(e₁) ∧
+        is_epi(e₂)
+      ) →
+      is_epi(e₂ ∘ e₁)
+  )
+} → // Composition property needed for isomorphism result
+
+theorem iso_is_epi() {
+  assert(
+    ∀(f: Morphism) ⇒
+      (
+        is_iso(f) →
+        is_epi(f)
+      )
+  )
+} ↔ // Equivalent to its proof
+
+proof iso_is_epi() {
+  setVar(f: Morphism) →
+  setVar(g₁,g₂: Morphism) →
+  assume(g₁ ∘ f = g₂ ∘ f) →
+  assert((g₁ ∘ f) ∘ f⁻¹ = (g₂ ∘ f) ∘ f⁻¹) →
+  assert(g₁ = g₂)
+}
+
+I've analyzed the logical connections as follows:
+
+1. The definition of epi connects to right_cancellation with → because the definition enables and is required for the cancellation property
+2. right_cancellation connects to composition_epi with → because the cancellation property is needed to prove composition
+3. composition_epi connects to iso_is_epi with → as it provides a key property used in the isomorphism result
+4. iso_is_epi connects to its proof with ↔ as they are logically equivalent
+
+The program maintains all variable bindings, type annotations, and mathematical symbols while structuring the proof in a logically coherent way using appropriate connectives.

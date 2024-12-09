@@ -1,0 +1,90 @@
+I'll convert this proof into a FuturLang program, carefully analyzing the logical connections between statements:
+
+// constructible_numbers.fl
+
+// Universe levels for type safety
+level u, v →
+
+// Core structures needed for proof
+struct Field@{u} {
+  carrier: Set@{u}
+} →
+
+struct Extension@{u v} {
+  base: Field@{u};
+  extended: Field@{v}
+} →
+
+struct MinimalPolynomial@{u} {
+  field: Field@{u};
+  degree: ℕ
+} → 
+
+// First key principle about constructible number degrees
+definition Constructible(r: ℝ): 𝔹 {
+  return ∃(n: ℕ) ⇒
+    [ℚ(r):ℚ] = 2^n
+} → // This enables following degree properties
+
+lemma Degree_Properties() {
+  assert(
+    ∀(r: ℝ) ⇒
+      (Constructible(r) →
+        ∃(n: ℕ) ⇒ [ℚ(r):ℚ] = 2^n)
+  )
+} ∧ // Works in parallel with cosine properties
+
+lemma Cosine_Minimal_Polynomial() {
+  assert(
+    ∀(θ: ℝ) ⇒
+      (cos(θ/3) Algebraic →
+        Degree(MinimalPolynomial(cos(θ/3)), ℚ(cos(θ))) = 3)
+  )
+} ∧ // Connects with cubic root properties
+
+lemma Cubic_Root_Degree() {
+  assert(
+    ∀(x: ℚ) ⇒
+      [ℚ(³√x):ℚ] = 3
+  )
+} → // These three lemmas enable the key theorem
+
+theorem Three_Not_Power_Of_Two() {
+  assert(
+    ∀(n: ℕ) ⇒
+      3 ∤ 2^n
+  )
+} → // Critical for final impossibility result
+
+theorem Impossibility_Result() {
+  assert(
+    ∀(θ: ℝ) ⇒
+      ∀(x: ℚ) ⇒
+        (
+          (θ ≢ kπ ∧ cos(θ) ∈ ℚ) →
+            ¬(cos(θ/3) Constructible)
+        ) ∧
+        ¬(³√x Constructible)
+  )
+} ↔ // Equivalent to its proof
+
+proof Impossibility_Result() {
+  apply(Degree_Properties()) →
+  apply(Cosine_Minimal_Polynomial()) →
+  apply(Cubic_Root_Degree()) →
+  apply(Three_Not_Power_Of_Two()) →
+  assert(
+    "Neither angle trisection nor cube roots are constructible"
+  )
+}
+
+I've structured the program with careful attention to logical dependencies:
+
+1. Used → for sequential dependencies where one definition/structure enables the next
+2. Used ∧ for parallel lemmas that work together to establish properties
+3. Used ↔ for the final theorem and its proof which are logically equivalent
+4. Maintained all mathematical symbols and notation
+5. Preserved type annotations and variable bindings
+6. Structured the flow from basic definitions through lemmas to the final theorem
+
+Each component builds on previous ones in a logically coherent way, with the connectives reflecting the true relationship between statements.

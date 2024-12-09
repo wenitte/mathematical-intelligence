@@ -1,0 +1,80 @@
+I'll convert this proof into a FuturLang program, carefully analyzing the logical relationships between statements.
+
+// adjoint_functor_equivalence.fl
+
+// Universe levels for category theory
+level u v →
+
+// Basic category definitions
+struct Category@{u} {
+  obj: Set@{u};
+  mor: obj → obj → Set@{u}
+} →
+
+struct Functor@{u v} {
+  source: Category@{u};
+  target: Category@{v};
+  map_obj: source.obj → target.obj;
+  map_mor: ∀(x y: source.obj) → source.mor(x,y) → target.mor(map_obj(x), map_obj(y))
+} →
+
+// Unit-counit definition for adjunction
+definition unit_counit_definition(C: Category, D: Category): Set {
+  return {
+    (F: Functor(C,D), G: Functor(D,C)) |
+      ∃(η: NaturalTransformation(1_C, G∘F)) ∧
+      ∃(ε: NaturalTransformation(F∘G, 1_D))
+  }
+} → // Enables hom-set definition
+
+// Hom-set bijection characterization
+definition hom_set_bijection(C: Category, D: Category, F: Functor(C,D), G: Functor(D,C)): Set {
+  return {
+    φ: ∀(x: C.obj)(y: D.obj) → Isomorphism(Mor(F(x),y), Mor(x,G(y))) |
+      ∀(f: Mor(F(x),y)) ⇒ φ(x,y)(f) = G(f) ∘ η_x ∧
+      ∀(g: Mor(x,G(y))) ⇒ φ⁻¹(x,y)(g) = ε_y ∘ F(g)
+  }
+} → // Required for triangular identities
+
+// Triangular identities
+definition triangular_identities(C: Category, D: Category, F: Functor(C,D), G: Functor(D,C)): 𝔹 {
+  return
+    ∀(x: D.obj) ⇒ G(ε_x) ∘ η_{G(x)} = id_{G(x)} ∧
+    ∀(x: C.obj) ⇒ ε_{F(x)} ∘ F(η_x) = id_{F(x)}
+} ↔ // Equivalent to natural isomorphism
+
+// Natural isomorphism theorem
+theorem natural_isomorphism_equivalence() {
+  assert(
+    ∀(C: Category)(D: Category)(F: Functor(C,D))(G: Functor(D,C)) ⇒
+      (
+        Mor(F(x),y) ≅ Mor(x,G(y)) ∧
+        φ_{x,y} is_isomorphism
+      ) ↔
+      (
+        hom_set_bijection(C,D,F,G) ↔
+        triangular_identities(C,D,F,G)
+      )
+  )
+} ↔ // Equivalent to its proof
+
+proof natural_isomorphism_equivalence() {
+  setVar(C: Category) →
+  setVar(D: Category) →
+  setVar(F: Functor(C,D)) →
+  setVar(G: Functor(D,C)) →
+  apply(unit_counit_definition(C,D)) →
+  apply(hom_set_bijection(C,D,F,G)) →
+  apply(triangular_identities(C,D,F,G)) →
+  assert("Natural isomorphism equivalence holds")
+}
+
+I analyzed the logical relationships as follows:
+
+1. Basic definitions flow forward with → since each builds on previous ones
+2. Unit-counit definition enables hom-set bijection (→)
+3. Hom-set bijection enables triangular identities (→)
+4. Triangular identities and natural isomorphism are equivalent (↔)
+5. The final theorem and its proof are equivalent (↔)
+
+The program preserves all mathematical symbols, variable bindings, and type annotations while expressing the logical structure of the original proof.

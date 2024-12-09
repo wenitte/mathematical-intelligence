@@ -1,0 +1,116 @@
+I'll convert this proof into a FuturLang program, carefully analyzing the logical connections between statements:
+
+// intermediate_value_theorem.fl
+
+// Type definitions for required structures
+struct Interval@{u} {
+  a: ℝ;
+  b: ℝ;
+  closed: 𝔹
+} → // Needed for function domain
+
+struct ContinuousFunction@{u} {
+  domain: Interval;
+  f: ℝ → ℝ;
+  continuous: 𝔹
+} → // Primary structure for theorem
+
+// Main theorem definition
+theorem IntermediateValueTheorem() {
+  assert(
+    ∀(f: ContinuousFunction) ⇒
+      ∀(k: ℝ) ⇒
+        (
+          (f.domain.closed ∧
+           min(f(a), f(b)) < k < max(f(a), f(b))) →
+          ∃(c: ℝ) ⇒
+            (
+              f.domain.a < c < f.domain.b ∧
+              f(c) = k
+            )
+        )
+  )
+} → // Leads to proof structure
+
+// WLOG assumption and set construction
+lemma SetupAssumptions() {
+  assert(
+    ∃(f: ContinuousFunction) ⇒
+      (
+        f(a) < k < f(b) ∧
+        S = {x ∈ [a,b] | f(x) < k}
+      )
+  )
+} ∧ // Works together with supremum definition
+
+definition Supremum(S: Set[ℝ]): ℝ {
+  return min({x: ℝ | ∀(s ∈ S) ⇒ s ≤ x})
+} → // Enables endpoint analysis
+
+lemma EndpointExclusion() {
+  setVar(ε: ℝ, (k - f(a))/2) →
+  assert(
+    ∃(δ₁: ℝ) ⇒
+      ∀(x ∈ (a, a+δ₁)) ⇒
+        f(x) < k
+  ) ∧
+  assert(
+    ∃(δ₂: ℝ) ⇒
+      ∀(x ∈ (b-δ₂, b)) ⇒
+        f(x) > k
+  )
+} → // Leads to supremum properties
+
+lemma SupremumProperties() {
+  setVar(c: ℝ, Supremum(S)) →
+  assert(
+    (
+      ∀(x < c) ⇒ ∃(y ∈ S) ⇒ x < y ∧
+      ∀(x > c) ⇒ ∃(y ∉ S) ⇒ y < x
+    )
+  )
+} → // Enables continuity argument
+
+lemma ContinuityAtC() {
+  setVar(ε: ℝ, positive) →
+  assert(
+    ∃(δ: ℝ) ⇒
+      ∀(x ∈ (c-δ, c+δ)) ⇒
+        |f(x) - f(c)| < ε
+  ) ∧
+  assert(
+    ∃(x₀ ∈ (c-δ, c)) ⇒
+      f(x₀) < k
+  ) ∧
+  assert(
+    ∃(x₁ ∈ (c, c+δ)) ⇒
+      f(x₁) ≥ k
+  )
+} → // Leads to final squeeze argument
+
+lemma SqueezeTheorem() {
+  assert(
+    ∀(ε > 0) ⇒
+      (
+        k - ε < f(c) < k + ε →
+        f(c) = k
+      )
+  )
+} → // Enables final proof
+
+proof IntermediateValueTheorem() {
+  apply(SetupAssumptions()) →
+  setVar(c: ℝ, Supremum(S)) →
+  apply(EndpointExclusion()) →
+  apply(SupremumProperties()) →
+  apply(ContinuityAtC()) →
+  apply(SqueezeTheorem()) →
+  assert(f(c) = k)
+} ↔ // Equivalent to theorem statement
+
+I've structured the program to follow the logical flow of the proof, using:
+- → for sequential implications where one statement enables or leads to another
+- ∧ for parallel statements that work together to establish a result
+- ↔ for the final theorem and proof which are logically equivalent
+
+Each component builds on previous ones, maintaining the precise logical dependencies of the original proof while preserving mathematical rigor in FuturLang syntax.

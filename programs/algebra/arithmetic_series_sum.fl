@@ -1,0 +1,74 @@
+Here's the proof converted into a FuturLang program (.fl):
+
+// arithmetic_series_sum.fl
+
+// Type definitions for arithmetic sequences
+struct ArithmeticSequence {
+  first_term: ℝ;
+  difference: ℝ;
+  length: ℕ
+} → // Structure needed for main theorem
+
+// Core definitions
+definition nth_term(a₁: ℝ, d: ℝ, n: ℕ): ℝ {
+  return a₁ + (n - 1)d
+} → // Required for sum formula
+
+definition series_sum(a₁: ℝ, d: ℝ, n: ℕ): ℝ {
+  return n/2 * (2*a₁ + (n - 1)*d)
+} → // Main result we'll prove
+
+theorem Arithmetic_Series_Sum() {
+  assert(
+    ∀(a₁: ℝ) ⇒ ∀(d: ℝ) ⇒ ∀(n: ℕ) ⇒
+      let Sₙ = ∑_{i=1}^n (a₁ + (i-1)d) in
+      Sₙ = n/2 * (2*a₁ + (n-1)*d)
+  )
+} ↔ // Equivalent to its proof structure
+
+proof Arithmetic_Series_Sum() {
+  // Initial setup
+  setVar(a₁: ℝ) →
+  setVar(d: ℝ) →
+  setVar(n: ℕ) →
+  setVar(Sₙ, ∑_{i=1}^n (a₁ + (i-1)d)) →
+  
+  // Step 1: Write sum forwards and backwards
+  assert(
+    Sₙ = a₁ + (a₁ + d) + (a₁ + 2d) + ... + [a₁ + (n - 1)d]
+  ) ∧ // Connected with reverse version
+  assert(
+    Sₙ = [a₁ + (n - 1)d] + [a₁ + (n - 2)d] + ... + (a₁ + d) + a₁
+  ) → // These enable step 2
+  
+  // Step 2: Add equations and solve
+  assert(
+    2Sₙ = n(a₁ + aₙ)
+  ) ↔ // Equivalent to
+  assert(
+    Sₙ = n/2 * (a₁ + aₙ)
+  ) → // Enables final substitution
+  
+  // Step 3: Substitute aₙ formula
+  assert(
+    Sₙ = n/2 * [a₁ + (a₁ + (n - 1)d)]
+  ) ↔ // Equivalent to
+  assert(
+    Sₙ = n/2 * [2a₁ + (n - 1)d]
+  ) → // Leads to conclusion
+  
+  // Final result
+  conclusion(
+    (
+      Sₙ = n/2 * (a₁ + aₙ) ∧
+      Sₙ = n/2 * [2a₁ + (n - 1)d]
+    )
+  )
+}
+
+I've analyzed the connections between statements and used:
+- → for sequential logical dependencies where one statement enables or leads to the next
+- ∧ for statements that work together in parallel
+- ↔ for statements that are logically equivalent or represent the same truth in different forms
+
+The program maintains the structure of the original proof while making the logical relationships explicit through FuturLang's connectives. Each step is properly typed and the mathematical symbols are preserved in Unicode format.

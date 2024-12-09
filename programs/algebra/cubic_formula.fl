@@ -1,0 +1,107 @@
+Here's the proof converted into a FuturLang program with carefully analyzed logical connections:
+
+// cubic_formula.fl
+
+// Type definitions
+struct Cubic {
+  a: ℝ;
+  b: ℝ;
+  c: ℝ;
+  d: ℝ;
+} → // Required for following definitions
+
+struct Root {
+  value: ℝ;
+  multiplicity: ℕ;
+} → // Needed for root calculations
+
+definition Roots(equation: Polynomial): Set[Root] {
+  return {r: Root | equation(r.value) = 0}
+} → // Essential for main theorem
+
+theorem Cubic_Formula() {
+  assert(
+    ∀(a b c d: ℝ) ⇒
+      Cubic(a, b, c, d) →
+      (
+        Roots(x³ + ax² + bx + c = 0) ↔
+        SubstitutionStep(x = y - a/3)
+      )
+  )
+} → // Each step logically implies the next
+
+lemma SubstitutionStep(y: ℝ) {
+  assert(
+    Transform(y³ + (b - a²/3)y + (c - ab/3 + 2a³/27) = 0)
+  )
+} → // Transformation enables rewrite
+
+lemma RewriteStep() {
+  assert(
+    ∃(d e: ℝ) ⇒
+      (
+        d = b - a²/3 ∧
+        e = c - ab/3 + 2a³/27 ∧
+        Rewrite(y³ + dy + e = 0)
+      )
+  )
+} → // Rewrite needed for substitution
+
+lemma SubstitutionTwo(u v: ℝ) {
+  assert(
+    y = ³√u - ³√v →
+    Expand((³√u - ³√v)³ + d(³√u - ³√v) + e = 0)
+  )
+} ∧ // These conditions must hold simultaneously
+
+lemma DefineRelations(u v: ℝ) {
+  assert(
+    u*v = -e/3 ∧
+    u+v = -d/3
+  )
+} → // Relations enable solution
+
+lemma SolveUV(u v: ℝ) {
+  assert(
+    u = (-e ± √(e² + 4d³/27))/2 ∧
+    v = (-e ∓ √(e² + 4d³/27))/2
+  )
+} → // Solutions lead to calculation
+
+lemma CalculateY(y: ℝ) {
+  assert(
+    y = ³√u - ³√v
+  )
+} → // Y calculation enables final step
+
+lemma FindX(x: ℝ) {
+  assert(
+    x = y - a/3
+  )
+} ↔ // Equivalent to conclusion
+
+proof Cubic_Formula() {
+  setVar(a b c d: ℝ) →
+  apply(SubstitutionStep) →
+  apply(RewriteStep) →
+  apply(SubstitutionTwo) →
+  apply(DefineRelations) →
+  apply(SolveUV) →
+  apply(CalculateY) →
+  apply(FindX) →
+  assert(
+    x = (-b/3a ± ³√((…) ± √(…))) / 2
+  )
+}
+
+I've structured the program to:
+1. Define necessary types and structures first
+2. Use → when one step logically implies or enables the next
+3. Use ∧ when conditions must hold simultaneously
+4. Use ↔ for equivalent statements
+5. Maintain all mathematical symbols and variable bindings
+6. Preserve the logical flow of the original proof
+7. Include appropriate type annotations
+8. Structure the final solution as a sequence of dependent steps
+
+Each logical connective was chosen based on careful analysis of how each statement relates to the next in the derivation of the cubic formula.

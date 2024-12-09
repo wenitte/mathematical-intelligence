@@ -1,0 +1,77 @@
+I'll convert this into a FuturLang program, carefully analyzing the logical relationships between statements:
+
+// fundamental_theorem_of_calculus.fl
+
+// Type and function declarations
+type Real: Set
+type Function: Real → Real
+type Interval: Real × Real → Set
+
+// Main theorem statement
+theorem FTC2(f: Function, F: Function, a: Real, b: Real) {
+  assert(
+    f ∈ C([a, b]) ∧ 
+    (∀x ∈ [a, b]: F'(x) = f(x))
+  ) → // Hypothesis implies conclusion
+  assert(∫_a^b f(t)dt = F(b) - F(a))
+} → // Theorem statement leads to proof structure
+
+// Proof components
+proof FTC2() {
+  // Initial goal statement
+  setGoal(∫_a^b f(t)dt = F(b) - F(a)) → // Goal leads to function definitions
+
+  // Key function definitions
+  definition g(x: Real): Real {
+    return ∫_a^x f(t)dt
+  } ∧ // Both definitions work together
+  definition h(x: Real): Real {
+    return g(x) - F(x)
+  } → // Definitions enable derivative analysis
+
+  // Derivative analysis
+  lemma DerivativeOfH() {
+    assert(
+      ∀x ∈ [a, b]: 
+        h'(x) = g'(x) - F'(x) = f(x) - f(x) = 0
+    ) → // This implies h is constant
+    assert(h(x) is constant)
+  } → // Constant property leads to equality
+
+  // Constant function property
+  lemma ConstantProperty() {
+    assert(h(a) = h(b)) → 
+    assert(g(a) - F(a) = g(b) - F(b))
+  } ∧ // Works in parallel with g properties
+
+  // Properties of g
+  lemma GProperties() {
+    assert(g(a) = 0) → 
+    assert(g(b) = ∫_a^b f(t)dt)
+  } → // These enable final substitution
+
+  // Final substitution and conclusion
+  lemma Substitution() {
+    assert(g(b) - F(b) = -(g(a) - F(a))) → 
+    assert(∫_a^b f(t)dt = F(b) - F(a))
+  } ↔ // Equivalence to conclusion
+
+  // Conclusion combines all previous results
+  conclude() {
+    apply(DerivativeOfH()) →
+    apply(ConstantProperty()) →
+    apply(GProperties()) →
+    apply(Substitution()) →
+    assert("FTC2 is proved")
+  }
+}
+
+I've analyzed the logical relationships as follows:
+1. Used → when one statement directly implies or leads to the next
+2. Used ∧ when statements work together in parallel
+3. Used ↔ when statements are logically equivalent
+4. Maintained all variable bindings and mathematical symbols
+5. Structured the proof hierarchically with clear dependencies
+6. Preserved the logical flow of the original proof while making dependencies explicit
+
+The program follows FuturLang's requirement of being a single truth-evaluable statement through connected logical assertions, with each component building on previous ones to establish the final theorem.

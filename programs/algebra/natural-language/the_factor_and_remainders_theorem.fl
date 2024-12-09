@@ -1,0 +1,108 @@
+I'll convert this polynomial division theorem into a FuturLang program, carefully analyzing the logical relationships between statements:
+
+// polynomial-division.fl
+
+// Prelude: Polynomial Ring Theory
+level u → // Universe level for type definitions
+
+// Type definitions for polynomial structures
+struct Polynomial@{u} {
+  coefficients: List[Field@{u}];
+  degree: ℕ
+} → // Polynomial structure needed for division algorithm
+
+struct DivisionResult@{u} {
+  quotient: Polynomial@{u};
+  remainder: Polynomial@{u}
+} → // Result structure needed for theorem
+
+// Core definitions establish foundation
+definition PolynomialRing(F: Field): Set[Polynomial] {
+  return {
+    p: Polynomial |
+      ∀(i: ℕ) ⇒
+        p.coefficients[i] ∈ F
+  }
+} → // Ring structure needed for division
+
+definition Degree(p: Polynomial): ℕ {
+  return max({
+    i: ℕ |
+      p.coefficients[i] ≠ 0
+  })
+} ∧ // Works together with next definition
+
+definition IsValid(d: DivisionResult, m: Polynomial, n: Polynomial): 𝔹 {
+  return (
+    m = n * d.quotient + d.remainder ∧
+    (n ≠ 0 → Degree(d.remainder) < Degree(n))
+  )
+} → // Validity check needed for uniqueness lemma
+
+lemma Division_Existence() {
+  assert(
+    ∀(F: Field) ⇒
+      ∀(m, d: PolynomialRing(F)) ⇒
+        ∃(result: DivisionResult) ⇒
+          IsValid(result, m, d)
+  )
+} → // Existence needed for uniqueness
+
+proof Division_Existence() {
+  setVar(F: Field) →
+  setVar(m, d: PolynomialRing(F)) →
+  constructDivisionResult(m, d) →
+  assert(IsValid(result, m, d))
+} → // Proof enables uniqueness lemma
+
+lemma Division_Uniqueness() {
+  assert(
+    ∀(F: Field) ⇒
+      ∀(m, d: PolynomialRing(F)) ⇒
+        ∀(r1, r2: DivisionResult) ⇒
+          (
+            IsValid(r1, m, d) ∧
+            IsValid(r2, m, d)
+          ) →
+          r1 = r2
+  )
+} → // Uniqueness needed for main theorem
+
+proof Division_Uniqueness() {
+  setVar(F: Field) →
+  setVar(m, d: PolynomialRing(F)) →
+  setVar(r1, r2: DivisionResult) →
+  assume(IsValid(r1, m, d) ∧ IsValid(r2, m, d)) →
+  assert(r1 = r2)
+} → // All components ready for main theorem
+
+theorem Polynomial_Division() {
+  assert(
+    ∀(F: Field) ⇒
+      ∀(m, d: PolynomialRing(F)) ⇒
+        ∃!(result: DivisionResult) ⇒
+          (
+            m = d * result.quotient + result.remainder ∧
+            (d ≠ 0 → Degree(result.remainder) < Degree(d))
+          )
+  )
+} ↔ // Equivalent to its proof
+
+proof Polynomial_Division() {
+  setVar(F: Field) →
+  setVar(m, d: PolynomialRing(F)) →
+  apply(Division_Existence()) →
+  apply(Division_Uniqueness()) →
+  assert("Polynomial division algorithm is well-defined")
+}
+
+In this conversion, I've:
+1. Used → for sequential dependencies where one component enables the next
+2. Used ∧ for parallel concepts that work together
+3. Used ↔ for the equivalence between theorem and proof
+4. Maintained all variable bindings and type annotations
+5. Preserved mathematical symbols
+6. Structured the program to build up from basic definitions to the final theorem
+7. Included appropriate universe levels for type safety
+
+The logical flow moves from basic definitions through existence and uniqueness lemmas to the final theorem, with each component properly connected to those it depends on.

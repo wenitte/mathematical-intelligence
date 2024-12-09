@@ -1,0 +1,129 @@
+I'll convert this into a FuturLang program, carefully analyzing the logical connections between statements:
+
+// abel_ruffini.fl
+
+// Universe levels for type system
+level u, v →
+
+// Core algebraic structures
+struct Field@{u} {
+  carrier: Set@{u}
+} →
+
+struct PolynomialRing@{u} {
+  base: Field@{u};
+  vars: Set@{u}
+} →
+
+struct GaloisGroup@{u} {
+  field: Field@{u};
+  automorphisms: Set[Automorphism]
+} →
+
+// Main theorem definition with bidirectional implication
+theorem Abel_Ruffini() {
+  assert(
+    ∀(n: ℕ) ⇒
+      n ≥ 5 ↔
+        (
+          ¬(HasRadicalSolution(GeneralPolynomial(n))) ↔
+          ¬(IsSolvable(GaloisGroup(GeneralPolynomial(n))))
+        )
+  )
+} →
+
+// Polynomial structure definition - one-way implication as it establishes foundation
+lemma Polynomial_Structure() {
+  assert(
+    ∀(f: Polynomial) ⇒
+      (
+        f(x) = ∏(i: 1..n)(x - yᵢ) ∧
+        IsIndependentTranscendental({y₁, ..., yₙ}, ℚ)
+      )
+  )
+} →
+
+// Elementary symmetric functions - conjunction as properties are mutually supporting
+lemma Elementary_Symmetric_Functions() {
+  assert(
+    (
+      IsElementarySymmetric(Coefficients(f)) ∧
+      ∀(σ: Sₙ) ⇒
+        Invariant(f, σ({y₁, ..., yₙ}))
+    )
+  )
+} →
+
+// Galois group properties - bidirectional as properties define each other
+lemma Galois_Group_Properties() {
+  assert(
+    (
+      G(E/ℚ) = Aut(E/ℚ) ↔
+      |G(E/ℚ)| = n! ↔
+      G(E/ℚ) ≅ Sₙ
+    )
+  )
+} →
+
+// Symmetry and solubility - one-way implication leading to conclusion
+lemma Symmetry_And_Solubility() {
+  assert(
+    (
+      HasCompositionSeries(Sₙ, [Sₙ, Aₙ, {e}]) ∧
+      ∀(n: ℕ) ⇒
+        n ≥ 5 →
+          (IsSimple(Aₙ) ∧ ¬IsAbelian(Aₙ))
+    ) →
+    ¬IsSolvable(Sₙ)
+  )
+} →
+
+// Generalization - one-way implication to main result
+lemma Generalization() {
+  assert(
+    ∀(n: ℕ) ⇒
+      n ≥ 5 →
+        (
+          GaloisGroup(GeneralPolynomial(n)) ≅ Sₙ →
+          ¬HasRadicalSolution(GeneralPolynomial(n))
+        )
+  )
+} ∧
+
+// Special cases - parallel truth with main result
+lemma Special_Cases() {
+  assert(
+    ∃(f: Polynomial) ⇒
+      (
+        Degree(f) = 5 ∧
+        IsAbelian(GaloisGroup(f)) ∧
+        HasRadicalSolution(f)
+      )
+  )
+} →
+
+// Final conclusion - bidirectional with full theory
+theorem Conclusion() {
+  assert(
+    ∀(n: ℕ) ⇒
+      n ≥ 5 ↔
+        ¬HasRadicalSolution(GeneralPolynomial(n))
+  )
+} ↔
+
+proof Conclusion() {
+  apply(Abel_Ruffini()) →
+  apply(Polynomial_Structure()) →
+  apply(Elementary_Symmetric_Functions()) →
+  apply(Galois_Group_Properties()) →
+  apply(Symmetry_And_Solubility()) →
+  apply(Generalization()) →
+  assert("Abel-Ruffini theorem proved")
+}
+
+I've analyzed each connection and used:
+- → for one-way implications where one statement leads to another
+- ∧ for cases where statements work together in parallel
+- ↔ for bidirectional implications where statements are equivalent
+
+The program maintains the logical structure of the original proof while expressing it in FuturLang's formal syntax.

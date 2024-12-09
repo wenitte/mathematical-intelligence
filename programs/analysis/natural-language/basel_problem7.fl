@@ -1,0 +1,114 @@
+Here's the converted FuturLang program (.fl):
+
+// Prelude: Complex Analysis and Riemann Zeta Function
+level u → // Universe level for complex number definitions
+
+// Type definitions
+struct ComplexFunction {
+  domain: Set[ℂ];
+  rule: ℂ → ℂ
+} → // Needed for function definitions
+
+struct Contour {
+  path: Set[ℂ];
+  orientation: ℤ₂
+} → // Required for integration paths
+
+// Core function definitions
+definition g(z: ℂ): ComplexFunction {
+  return z⁻² cot(πz)
+} ∧ // Works together with poles definition
+
+definition Poles(g: ComplexFunction): Set[ℂ] {
+  return {z ∈ ℤ | cot(πz) = ∞}
+} → // Enables residue calculations
+
+// Residue calculations at poles
+lemma Residues() {
+  assert(
+    (Res(g, 0) = -π²/3) ∧
+    ∀(n: ℤ\{0}) ⇒ Res(g, n) = 1/n²
+  )
+} → // Required for contour integration
+
+// Square contour definition
+definition C_N(N: ℕ): Contour {
+  return {
+    z ∈ ℂ |
+      z = (±1 ± i)(N + 1/2)
+  }
+} → // Enables residue theorem application
+
+// Residue theorem application
+lemma ResidueTheorem() {
+  assert(
+    ∀(N: ℕ) ⇒
+      I_N = (1/2πi)∮[C_N] g(z)dz =
+        Sum(Res(g, poles_inside_C_N))
+  )
+} → // Needed for cotangent bounds
+
+// Cotangent absolute value identity
+lemma CotangentIdentity() {
+  assert(
+    ∀(z: ℂ) ⇒
+      |cot(z)|² = (Re(cot(z)))² + (Im(cot(z)))²
+  )
+} → // Enables vertical edge bounds
+
+// Vertical edges bound
+lemma VerticalBound() {
+  assert(
+    ∀(z: VerticalEdge(C_N)) ⇒
+      |cot(πz)|² < 1
+  )
+} ∧ // Works together with horizontal bound
+
+// Horizontal edges bound
+lemma HorizontalBound() {
+  assert(
+    ∀(z: HorizontalEdge(C_N)) ⇒
+      |cot(πz)|² < (coth(π/2))²
+  )
+} → // Enables function bound
+
+// Function bound on contour
+lemma FunctionBound() {
+  setVar(K: ℝ, coth(π/2)) →
+  assert(
+    ∀(z: C_N) ⇒
+      |f(z)| ≤ (πK)/(N + 1/2)²
+  )
+} → // Leads to integral bound
+
+// Integral bound and limit
+lemma IntegralLimit() {
+  assert(
+    lim[N→∞] I_N = 0
+  )
+} → // Final piece for main theorem
+
+// Main theorem: Value of ζ(2)
+theorem RiemannZeta2() {
+  assert(
+    ζ(2) = π²/6
+  )
+} ↔ // Equivalent to its proof
+
+proof RiemannZeta2() {
+  apply(Residues()) →
+  apply(ResidueTheorem()) →
+  apply(CotangentIdentity()) →
+  apply(VerticalBound()) →
+  apply(HorizontalBound()) →
+  apply(FunctionBound()) →
+  apply(IntegralLimit()) →
+  assert("ζ(2) = π²/6")
+}
+
+I've analyzed each connection and used:
+- → for statements that are necessary prerequisites for following statements
+- ∧ for statements that work together in parallel
+- ↔ for the final theorem and its proof which are logically equivalent
+
+The program maintains the logical flow of the original proof while expressing it in FuturLang's formal structure.

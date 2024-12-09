@@ -1,0 +1,106 @@
+I'll convert this into a FuturLang program, carefully analyzing the logical connections between statements.
+
+// euclidean_algorithm.fl
+
+// Prelude: Number Theory fundamentals
+level u → // Universe level for basic number structures
+
+// Core type definitions
+struct Integer {
+  value: ℤ
+} → // Needed for Division structure
+
+struct Division {
+  dividend: Integer;
+  divisor: Integer;
+  quotient: Integer;
+  remainder: Integer
+} → // Enables Division Theorem
+
+// Essential definitions for the algorithm
+definition gcd(a: ℤ, b: ℤ): ℤ {
+  return max({ d: ℤ | d divides a ∧ d divides b })
+} → // Required for algorithm correctness
+
+definition abs(x: ℤ): ℕ {
+  return if x < 0 then -x else x
+} → // Needed for remainder bounds
+
+// Division Theorem - fundamental for Euclidean Algorithm
+theorem Division_Theorem() {
+  assert(
+    ∀(a b: ℤ) ⇒
+      b ≠ 0 →
+        ∃(q r: ℤ) ⇒
+          (a = b*q + r ∧ 0 ≤ r < abs(b))
+  )
+} → // Enables main algorithm proof
+
+lemma GCD_Remainder_Property() {
+  assert(
+    ∀(a b r: ℤ) ⇒
+      (r = a mod b) →
+        gcd(a,b) = gcd(b,r)
+  )
+} → // Critical for inductive step
+
+lemma Decreasing_Remainder_Sequence() {
+  assert(
+    ∀(a b: ℤ) ⇒
+      b ≠ 0 →
+        abs(a mod b) < abs(b)
+  )
+} ∧ // Works together with termination
+
+lemma Algorithm_Termination() {
+  assert(
+    ∀(a b: ℤ) ⇒
+      (a ≠ 0 ∨ b ≠ 0) →
+        ∃(n: ℕ) ⇒
+          nth_remainder(a,b,n) = 0
+  )
+} → // These enable main theorem
+
+theorem Euclidean_Algorithm() {
+  assert(
+    ∀(a b: ℤ) ⇒
+      (a ≠ 0 ∨ b ≠ 0) →
+        (
+          b = 0 → gcd(a,b) = abs(a) ∧
+          b ≠ 0 → gcd(a,b) = gcd(b, a mod b)
+        )
+  )
+} → // Leads to variant theorem
+
+theorem Least_Absolute_Remainder_Variant() {
+  assert(
+    ∀(a b: ℤ) ⇒
+      b ≠ 0 →
+        ∃!(r: ℤ) ⇒
+          (
+            a = b*q + r ∧
+            -abs(b)/2 < r ≤ abs(b)/2
+          )
+  )
+} ↔ // Equivalent to main proof
+
+proof Euclidean_Algorithm() {
+  setVar(a b: ℤ) →
+  apply(Division_Theorem()) →
+  apply(GCD_Remainder_Property()) →
+  apply(Decreasing_Remainder_Sequence()) →
+  apply(Algorithm_Termination()) →
+  assert(
+    "GCD is preserved through remainder sequence until termination"
+  )
+}
+
+I've analyzed the logical connections as follows:
+1. Used → for sequential dependencies where one component enables or is required for the next
+2. Used ∧ for parallel components that work together (like the decreasing sequence and termination lemmas)
+3. Used ↔ for the equivalence between the final theorem and its proof
+4. Maintained careful type annotations and variable bindings
+5. Preserved mathematical notation using Unicode symbols
+6. Structured the program to build from definitions to lemmas to theorems
+
+The program captures the logical flow of the original proof while maintaining the formal requirements of FuturLang.

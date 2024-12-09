@@ -1,0 +1,107 @@
+Here's the proof converted into a FuturLang program:
+
+// fundamental_theorem_of_algebra.fl
+
+// Universe levels
+level u, v →
+
+// Type definitions
+struct Complex {
+  re: ℝ;
+  im: ℝ
+} →
+
+struct Polynomial {
+  coefficients: List[Complex];
+  degree: ℕ
+} →
+
+// Core definitions
+definition Root(p: Polynomial, c: Complex): 𝔹 {
+  return p(c) = 0
+} →
+
+definition RootMultiplicity(p: Polynomial, c: Complex, k: ℕ): 𝔹 {
+  return (z - c)^k divides p(z)
+} →
+
+definition TotalRoots(p: Polynomial): ℕ {
+  return sum(multiplicities of all roots)
+} →
+
+// Main theorem statement
+theorem Fundamental_Theorem_Of_Algebra() {
+  assert(
+    ∀p(z)(
+      Polynomial(p(z)) ∧ deg(p(z)) > 0 →
+        (∃c∈ℂ(Root(p(z), c)) ∧
+         ∀k(1 ≤ k ≤ deg(p(z)) →
+           ∃c∈ℂ(RootMultiplicity(p(z), c, k)) ∧
+           TotalRoots(p(z)) = deg(p(z))))
+    )
+  )
+} → 
+
+// First part: Existence of at least one root
+lemma Existence_Of_Root() {
+  assert(∃c∈ℂ(Root(p(z), c)))
+} →
+
+proof Existence_Of_Root() {
+  // Proof by contradiction
+  assume(¬∃c∈ℂ(Root(p(z), c))) →
+  
+  // Minimum modulus principle
+  assert(
+    ∀z(∃s(|z| > s → |p(z)| > 2|p₀|)) ∧
+    ∃t(|p(t)| = min(|p(z)|, |z| ≤ s))
+  ) ∧
+
+  // Translation and series analysis
+  setVar(q(z), p(z + t)) ∧
+  assert(q(0) = q₀ = |p(t)|) ∧
+  assert(q(z) = q₀ + qₘzᵐ + ∑_{k>m} qₖzᵏ) ∧
+  
+  // Contradiction construction
+  setVar(r, (-q₀/qₘ)^(1/m)) ∧
+  assert(q(z) = q₀ - q₀rᵐ + ∑_{k>m} qₖzᵏ) ∧
+  assert(|q(z)| < |q₀|) ∧
+  assert("Contradicts minimum principle") →
+  
+  // Double negation elimination
+  assert(¬(¬∃c∈ℂ(Root(p(z), c)))) →
+  assert(∃c∈ℂ(Root(p(z), c)))
+} →
+
+// Second part: Counting roots with multiplicities
+lemma Root_Counting() {
+  assert(
+    ∃c∈ℂ(Root(p(z), c)) →
+    ∀p(z)(p(z) = (z - c)q(z) ∧ deg(q(z)) = deg(p(z)) - 1)
+  )
+} ∧
+
+lemma Inductive_Root_Count() {
+  assert(
+    ∀n(
+      Induction(
+        n ≥ 1 ∧ deg(p(z)) = n →
+        p(z) has exactly n roots counting multiplicities
+      )
+    )
+  )
+} →
+
+proof Fundamental_Theorem_Of_Algebra() {
+  apply(Existence_Of_Root()) →
+  apply(Root_Counting()) →
+  apply(Inductive_Root_Count()) →
+  assert(∀p(z)(deg(p(z)) = n → TotalRoots(p(z)) = n))
+}
+
+The connectives were chosen based on these relationships:
+- → used for sequential logical dependencies where one statement enables or implies the next
+- ∧ used for parallel statements that work together or are simultaneously true
+- Initial definitions connected with → as each builds on previous ones
+- Main proof parts connected with → to show logical flow
+- Parallel lemmas connected with ∧ when they work together to establish a result

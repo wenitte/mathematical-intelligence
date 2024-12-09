@@ -1,0 +1,84 @@
+Here's the converted FuturLang program (.fl):
+
+// Prelude: Number Theory and Series
+level u → // Universe level for type definitions
+
+// Type definitions
+struct Natural {
+  n: ℕ;
+  succ: ℕ;
+  prod: ℕ
+} → // Natural structure needed for fraction definitions
+
+struct Fraction {
+  num: ℝ;
+  denom: ℝ;
+  value: ℝ
+} → // Fraction structure enables series calculations
+
+// Core definitions
+definition NaturalProperties(): Set[ℕ] {
+  return {
+    n: ℕ |
+      (n + 1 ∈ ℕ) ∧
+      (n * (n + 1) ∈ ℕ)
+  }
+} → // Properties needed for fraction validity
+
+definition SeriesTerm(n: ℕ): Fraction {
+  return {
+    num: 2,
+    denom: n * (n + 1),
+    value: 2/(n * (n + 1))
+  }
+} → // Definition enables series construction
+
+lemma NonZeroProduct() {
+  assert(
+    ∀(n: ℕ) ⇒
+      n * (n + 1) ≠ 0
+  )
+} ∧ // Works together with fraction validity
+
+lemma FractionEquivalence() {
+  assert(
+    ∀(n: ℕ) ⇒
+      2/(n * (n + 1)) = 2 * (1/(n * (n + 1)))
+  )
+} → // Enables sequence convergence proof
+
+lemma SequenceConvergence() {
+  assert(
+    ∃(S: Series[ℝ]) ⇒
+      (
+        S = Σ(n=1→∞) 1/(n * (n + 1)) ∧
+        lim(n→∞) S = 1
+      )
+  )
+} → // Critical for main theorem
+
+theorem InfiniteSeriesSum() {
+  assert(
+    Σ(n=1→∞) 2/(n * (n + 1)) = 2
+  )
+} ↔ // Equivalent to its proof
+
+proof InfiniteSeriesSum() {
+  setVar(n: ℕ) →
+  apply(NonZeroProduct()) →
+  apply(FractionEquivalence()) →
+  assert(
+    (
+      n * (n + 1) ∈ ℂ ∧
+      n * (n + 1) ≠ 0 ∧
+      1/(n * (n + 1)) ∈ ℝ
+    )
+  ) →
+  apply(SequenceConvergence()) →
+  assert(
+    Σ(n=1→∞) 2/(n * (n + 1)) =
+    2 * Σ(n=1→∞) 1/(n * (n + 1)) =
+    2 * 1 =
+    2
+  )
+}

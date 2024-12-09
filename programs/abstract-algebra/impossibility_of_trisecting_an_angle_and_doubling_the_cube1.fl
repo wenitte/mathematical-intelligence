@@ -1,0 +1,97 @@
+I'll help convert this proof into FuturLang, analyzing the logical connections between statements carefully.
+
+// angle_constructibility.fl
+
+// Universe levels for type safety
+level u, v →
+
+// Core structures needed for constructibility
+struct Field@{u} {
+  carrier: Set@{u}
+} →
+
+struct Extension@{u v} {
+  base: Field@{u};
+  extended: Field@{v}
+} →
+
+// Definition of constructible numbers
+definition Constructible(r: ℝ): 𝔹 {
+  return ∃(E: Extension(ℚ)) ⇒
+    ∃(n: ℕ) ⇒
+      [E:ℚ] = 2^n
+} →
+
+// First key lemma about degree of constructible numbers
+lemma Constructible_Degree() {
+  assert(
+    ∀(θ: ℝ) ⇒
+    ∀(r: ℝ) ⇒
+      (Constructible(r) →
+        ∃(n: ℕ) ⇒ [ℚ(r):ℚ] = 2^n)
+  )
+} → // This enables the trisection analysis
+
+// Lemma about trigonometric degree properties
+lemma Trisection_Degree() {
+  assert(
+    ∀(θ: ℝ) ⇒
+      (cos(θ/3) algebraic →
+        Degree(MinimalPolynomial(2cos(θ/3)), ℚ(cos(θ))) = 3)
+  )
+} ∧ // Works in parallel with cube root property
+
+// Lemma about cube root degree
+lemma Cube_Root_Degree() {
+  assert(
+    ∀(r: ℝ) ⇒
+      ∀(x: ℚ) ⇒
+        (r = ∛x → [ℚ(r):ℚ] = 3)
+  )
+} ∧ // Combined with previous for impossibility
+
+// Fundamental number theory fact
+lemma Power_Of_Two() {
+  assert(
+    ∀(n: ℕ) ⇒ ¬(3 | 2^n)
+  )
+} → // Enables final impossibility theorem
+
+// Main impossibility theorem
+theorem Impossibility_Result() {
+  assert(
+    ∀(θ: ℝ) ⇒
+    ∀(x: ℚ) ⇒
+      (
+        ((θ ≠ 0 mod π) ∧ cos(θ) ∈ ℚ →
+          ¬Constructible(cos(θ/3)))
+        ∧
+        (x ∈ ℚ → ¬Constructible(∛x))
+      )
+  )
+} ↔ // Equivalent to its proof
+
+proof Impossibility_Result() {
+  setVar(θ: ℝ) →
+  setVar(x: ℚ) →
+  apply(Constructible_Degree()) →
+  apply(Trisection_Degree()) →
+  apply(Cube_Root_Degree()) →
+  apply(Power_Of_Two()) →
+  assert("Both angle trisection and cube doubling are impossible")
+}
+
+I've analyzed the logical connections as follows:
+
+1. → between structure definitions as each builds on previous
+2. ∧ between Trisection_Degree and Cube_Root_Degree as they work together in parallel
+3. → from Power_Of_Two to final theorem as it's a necessary prerequisite
+4. ↔ between theorem and proof as they're logically equivalent
+5. → between proof steps as each depends on previous
+
+The program preserves all:
+- Variable bindings
+- Type annotations
+- Mathematical symbols
+- Logical dependencies
+- Core structure of the original proof

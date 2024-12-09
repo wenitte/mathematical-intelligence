@@ -1,0 +1,93 @@
+Here's the FuturLang program conversion (.fl) with carefully analyzed logical connections:
+
+// fundamental_theorem_calculus.fl
+
+// Universe level declarations for type safety
+level u, v →
+
+// Type definitions for required mathematical structures
+struct ContinuousFunction@{u} {
+  domain: Interval;
+  function: ℝ → ℝ
+} → 
+
+struct Integral@{u} {
+  integrand: ContinuousFunction@{u};
+  lowerBound: ℝ;
+  upperBound: ℝ
+} →
+
+// Main theorem statement
+theorem FTC1() {
+  assert(
+    ∀(f: ContinuousFunction([a,b])) ⇒
+      ∀(x: ℝ) ⇒
+        let F(x) = ∫_C^x f(t)dt in
+          d/dx(F(x)) = f(x)
+  )
+} → // Initiates chain of reasoning
+
+// Derivative definition as limit of difference quotient
+lemma derivative_definition() {
+  assert(
+    ∀(f: ContinuousFunction([a,b])) ⇒
+      d/dx(∫_C^x f(t)dt) = 
+        lim_{Δx→0}(∫_x^{x+Δx} f(t)dt / Δx)
+  )
+} → // Enables application of MVT
+
+// Mean Value Theorem application
+lemma mean_value_theorem() {
+  assert(
+    ∀(f: ContinuousFunction([a,b])) ⇒
+      ∀(x: ℝ) ⇒
+        ∀(Δx: ℝ) ⇒
+          ∃(k: ℝ) ⇒
+            (k ∈ [x, x + Δx] ∧
+             ∫_x^{x+Δx} f(t)dt = f(k)Δx)
+  )
+} → // Leads to simplification
+
+// Simplification using MVT result
+lemma simplification() {
+  assert(
+    d/dx(∫_C^x f(t)dt) = 
+      lim_{Δx→0}(f(k)) where 
+        k → x as Δx → 0
+  )
+} ∧ // Works together with continuity
+
+// Continuity property application
+lemma continuity_property() {
+  assert(
+    ∀(f: ContinuousFunction([a,b])) ⇒
+      ∀(k: ℝ) ⇒
+        (k → x) →
+          lim_{Δx→0}(f(k)) = f(x)
+  )
+} → // Final step to conclusion
+
+// Conclusion combining all previous results
+theorem conclusion() {
+  assert(
+    ∀(f: ContinuousFunction([a,b])) ⇒
+      d/dx(∫_C^x f(t)dt) = f(x)
+  )
+} ↔ // Equivalent to its proof
+
+proof conclusion() {
+  apply(derivative_definition()) →
+  apply(mean_value_theorem()) →
+  apply(simplification()) →
+  apply(continuity_property()) →
+  assert("FTC1 is proved")
+}
+
+The logical connectives were chosen based on these relationships:
+- → used when one statement directly enables or leads to the next
+- ∧ used when statements work together in parallel
+- ↔ used for equivalent statements or definitions
+- Type definitions chain with → as each builds on previous structures
+- Final theorem ↔ its proof as they're logically equivalent
+
+Each statement is properly typed and maintains the mathematical notation while expressing the logical flow of the original proof.

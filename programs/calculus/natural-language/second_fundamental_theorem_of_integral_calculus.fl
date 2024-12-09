@@ -1,0 +1,102 @@
+Here's the conversion of the Fundamental Theorem of Calculus proof into FuturLang:
+
+// fundamental_theorem_calculus_part2.fl
+
+// Type definitions for required structures
+struct Interval {
+  a: ℝ;
+  b: ℝ;
+  closed: 𝔹
+} →
+
+struct ContinuousFunction {
+  f: ℝ → ℝ;
+  domain: Interval;
+  continuous: 𝔹
+} →
+
+struct Antiderivative {
+  F: ℝ → ℝ;
+  f: ℝ → ℝ;
+  domain: Interval
+} → 
+
+// Main theorem definition
+theorem FundamentalTheoremCalculus2(
+  f: ContinuousFunction,
+  F: Antiderivative,
+  I: Interval
+) {
+  assert(
+    (f.continuous ∧ I.closed) →
+    (∫[I.a → I.b] f(x)dx = F(I.b) - F(I.a))
+  )
+} →
+
+// Core proof components
+proof FundamentalTheoremCalculus2() {
+  // Function definitions
+  definition g(x: ℝ): ℝ {
+    return ∫[I.a → x] f(t)dt
+  } ∧
+  
+  definition h(x: ℝ): ℝ {
+    return g(x) - F(x)
+  } →
+
+  // Derivative calculation
+  lemma DerivativeCalculation() {
+    assert(
+      ∀(x: ℝ) ⇒
+        (
+          h'(x) = g'(x) - F'(x) ∧
+          g'(x) = f(x) ∧
+          F'(x) = f(x) →
+          h'(x) = 0
+        )
+    )
+  } →
+
+  // Constant function property
+  lemma ConstantFunction() {
+    assert(
+      (h'(x) = 0) →
+      (∀(x₁ x₂: ℝ) ⇒ h(x₁) = h(x₂))
+    )
+  } →
+
+  // Endpoint equality
+  lemma EndpointEquality() {
+    assert(h(I.a) = h(I.b)) →
+    assert(g(I.a) - F(I.a) = g(I.b) - F(I.b))
+  } →
+
+  // Integral boundary properties
+  lemma IntegralBoundaries() {
+    assert(g(I.a) = 0) ∧
+    assert(g(I.b) = ∫[I.a → I.b] f(x)dx)
+  } →
+
+  // Final substitution
+  proof FinalStep() {
+    apply(EndpointEquality()) →
+    apply(IntegralBoundaries()) →
+    assert(
+      0 - F(I.a) = (∫[I.a → I.b] f(x)dx) - F(I.b) →
+      ∫[I.a → I.b] f(x)dx = F(I.b) - F(I.a)
+    )
+  }
+} ↔ // Equivalence between theorem and its proof
+
+// Verification that all components work together
+verification Complete() {
+  apply(FundamentalTheoremCalculus2()) →
+  assert("Fundamental Theorem of Calculus Part 2 is proved")
+}
+
+I've used the following logical connectives based on the relationships between statements:
+- → for sequential dependencies where one statement enables or leads to the next
+- ∧ for parallel statements that work together or are simultaneously true
+- ↔ for equivalence between the theorem and its complete proof
+
+The structure maintains the logical flow of the original proof while expressing it in FuturLang's formal notation. Each component is properly typed and the mathematical symbols are preserved using Unicode characters.

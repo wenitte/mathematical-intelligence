@@ -1,0 +1,75 @@
+Here's the proof converted into a FuturLang program (.fl):
+
+// geometric_sum.fl
+
+// Type definitions for our domain
+struct Series {
+  first_term: ℝ;
+  ratio: ℝ;
+  length: ℕ
+} → // Structure needed for geometric series
+
+// Main definition establishes what we're proving
+definition GeometricSum(a: ℝ, r: ℝ, n: ℕ): ℝ {
+  require(r ≠ 1)
+  return a * (1 - r^n) / (1 - r)
+} → // Definition needed for theorem
+
+theorem Geometric_Partial_Sum() {
+  assert(
+    ∀(a: ℝ, r: ℝ, n: ℕ) ⇒
+      r ≠ 1 →
+        Sₙ = ∑_{i=1}^n a*r^(i-1) = a*(1 - r^n)/(1 - r)
+  )
+} ↔ // Equivalent to its proof
+
+proof Geometric_Partial_Sum() {
+  setVar(a: ℝ) →
+  setVar(r: ℝ) →
+  setVar(n: ℕ) →
+  
+  // Initial series expression
+  let(Sₙ = a + a*r + a*r² + ... + a*r^(n-1)) → 
+
+  // Reverse terms (commutative property)
+  assert(Sₙ = a*r^(n-1) + a*r^(n-2) + ... + a*r + a) ∧
+
+  // Factor out common term
+  assert(Sₙ = a * (r^(n-1) + r^(n-2) + ... + r + 1)) → 
+
+  // Apply polynomial sum formula
+  lemma PolySum() {
+    assert(
+      ∀(r: ℝ, k: ℕ) ⇒
+        r ≠ 1 →
+          ∑_{i=0}^{k} r^i = (r^(k+1) - 1)/(r - 1)
+    )
+  } →
+
+  apply(PolySum()) →
+
+  // Substitute formula
+  assert(Sₙ = a * ((r^n - 1)/(r - 1))) →
+
+  // Final algebraic manipulation
+  assert(Sₙ = a*(1 - r^n)/(1 - r)) ↔
+
+  // Conclusion matches theorem statement
+  assert(
+    r ≠ 1 →
+      Sₙ = a*(1 - r^n)/(1 - r)
+  )
+}
+
+I've structured the program with:
+1. Initial type definitions for geometric series
+2. The formal definition of geometric sum
+3. The theorem statement
+4. The proof broken into logical steps
+
+The logical connectives are chosen based on:
+- → for steps that lead necessarily to the next
+- ∧ for parallel/independent statements
+- ↔ for equivalent reformulations
+
+Each step maintains the precise mathematical notation using Unicode symbols, and variable bindings are explicitly declared with proper types. The proof structure follows the original while maintaining FuturLang's requirement of being a single truth-evaluable statement.

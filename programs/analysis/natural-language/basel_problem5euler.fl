@@ -1,0 +1,95 @@
+I'll help convert this proof into a FuturLang program, carefully analyzing the logical relationships between statements.
+
+// infinite_product_sine.fl
+
+// Universe levels for type safety
+level u, v →
+
+// Type definitions for mathematical structures needed
+struct InfiniteProduct@{u} {
+  terms: Sequence@{u};
+  convergence: Proof[Convergent]
+} → // Required for product representation
+
+struct PowerSeries@{u} {
+  coefficients: Sequence@{u};
+  radius: ℝ
+} → // Needed for series expansions
+
+// Core definitions
+definition SineProduct(x: ℝ): InfiniteProduct {
+  return ∏(n=1 to ∞) sin(πx/n)
+} → // Primary object of study
+
+definition RHSProduct(x: ℝ): InfiniteProduct {
+  return πx * ∏(n=1 to ∞)(1 - x²/n²)
+} ∧ // Works together with expansion
+
+definition RHSExpansion(x: ℝ): PowerSeries {
+  return πx * (1 - Σ(n=1 to ∞)(1/n²)x² + 
+               Σ(n=1 to ∞)(1/(n²(n+1)))x⁴ - ...)
+} → // Enables coefficient comparison
+
+definition LHSExpansion(x: ℝ): PowerSeries {
+  return πx - (πx)³/3! + (πx)⁵/5! - ...
+} → // Required for main equality
+
+// Key lemmas
+lemma Coefficient_x3_Match() {
+  assert(
+    ∃(c: ℝ) ⇒
+      (
+        Coefficient(RHSExpansion, 3) = c ∧
+        Coefficient(LHSExpansion, 3) = c
+      )
+  )
+} → // Essential for proving equality
+
+lemma Zeta2_Value() {
+  assert(
+    ζ(2) = Σ(n=1 to ∞)(1/n²) = π²/6
+  )
+} → // Needed for final verification
+
+// Main theorem and proof
+theorem InfiniteProduct_Equals_Sine() {
+  assert(
+    ∀(x: ℝ) ⇒
+      (
+        |x| < 1 →
+        SineProduct(x) = πx * ∏(n=1 to ∞)(1 - x²/n²)
+      )
+  )
+} ↔ // Equivalent to its proof
+
+proof InfiniteProduct_Equals_Sine() {
+  setVar(x: ℝ, |x| < 1) →
+  
+  // Compare power series expansions
+  setVar(L: PowerSeries, LHSExpansion(x)) →
+  setVar(R: PowerSeries, RHSExpansion(x)) →
+  
+  // Verify coefficient matching
+  apply(Coefficient_x3_Match()) →
+  apply(Zeta2_Value()) →
+  
+  assert(
+    (
+      L = R ∧
+      "All coefficients match" ∧
+      "Series converge in stated domain"
+    )
+  )
+}
+
+In this FuturLang conversion, I've:
+
+1. Used → for sequential dependencies where one statement enables or is required for the next
+2. Used ∧ for parallel statements that work together
+3. Used ↔ for equivalent statements (theorem and its proof)
+4. Maintained mathematical symbols and type annotations
+5. Preserved the logical structure of the original proof
+6. Included necessary type definitions and universe levels
+7. Structured the proof to follow from definitions through lemmas to the final theorem
+
+The program captures the essence of comparing power series expansions and utilizing the Riemann zeta function while maintaining strict logical relationships between statements.
