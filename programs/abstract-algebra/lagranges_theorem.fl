@@ -1,5 +1,3 @@
-I'll convert this into a FuturLang program, carefully analyzing the logical relationships between statements.
-
 // lagrange.fl
 
 // Universe levels for type definitions
@@ -85,17 +83,3 @@ proof Lagrange_Theorem() {
   // Conclusion
   assert(|H| divides |G|)
 }
-
-I've structured the program with the following logical relationships:
-
-1. Universe level and type definitions use → as they enable subsequent definitions
-2. The main theorem and its proof are linked with ↔ as they are logically equivalent
-3. Within the proof:
-   - Initial variable declarations use → as they enable subsequent steps
-   - Cosets definition → disjoint cosets as it enables that property
-   - Disjoint cosets ∧ union property work together
-   - Partition property → number of cosets → elements calculation → divisibility
-   - Each step in the main proof chain uses → to show logical progression
-4. Each assertion builds on previous ones in a clear chain of implications
-
-The program maintains all mathematical symbols and proper variable bindings while expressing the logical structure of Lagrange's theorem and its proof.
