@@ -1,5 +1,3 @@
-Here's the FuturLang program conversion (.fl) with carefully analyzed logical connections:
-
 // fundamental_theorem_calculus.fl
 
 // Universe level declarations for type safety
@@ -82,12 +80,3 @@ proof conclusion() {
   apply(continuity_property()) →
   assert("FTC1 is proved")
 }
-
-The logical connectives were chosen based on these relationships:
-- → used when one statement directly enables or leads to the next
-- ∧ used when statements work together in parallel
-- ↔ used for equivalent statements or definitions
-- Type definitions chain with → as each builds on previous structures
-- Final theorem ↔ its proof as they're logically equivalent
-
-Each statement is properly typed and maintains the mathematical notation while expressing the logical flow of the original proof.
