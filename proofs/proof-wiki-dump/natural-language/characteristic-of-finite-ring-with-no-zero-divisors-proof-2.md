@@ -1,0 +1,202 @@
+# 
+
+Source: https://proofwiki.org/wiki/Characteristic_of_Finite_Ring_with_No_Zero_Divisors/Proof_2
+
+Theorem
+Let $\struct {R, +, \circ}$ be a finite ring with unity with no proper zero divisors whose zero is $0_R$ and whose unity is $1_R$.
+Let $n \ne 0$ be the characteristic of $R$.
+Then:
+
+$(1): \quad n$ must be a prime number
+$(2): \quad n$ is the order of all non-zero elements in $\struct {R, +}$.
+It follows that $\struct {R, +} \cong C_n$, where $C_n$ is the cyclic group of order $n$.
+
+
+Proof
+Suppose $\Char R = n$ where $n$ is composite.
+Let $n = r s$, where $r, s \in \Z, r > 1, s > 1$.
+First note that:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \paren {r \cdot 1_R} \circ \paren {s \cdot 1_R}\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \paren {r s} \paren {1_R \circ 1_R}\)
+
+
+
+
+
+Integral Multiple of Ring Element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \paren {r s} 1_R\)
+
+
+
+
+
+
+
+
+
+
+Then:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \paren {r \cdot 1_R} \circ \paren {s \cdot 1_R}\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds n \cdot 1_R\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds 0_R\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \leadsto \ \ \)
+
+
+
+
+
+\(\ds r \cdot 1_R = 0_R\)
+
+\(\lor\)
+
+
+
+
+
+
+
+\(\ds s \cdot 1_R = 0_R\)
+
+
+
+
+
+
+
+
+
+as $R$ has no proper zero divisors.
+But both $r$ and $s$ are less than $n$ which contradicting the minimality of $n$.
+So if $\Char R = n$ it follows that $n$ must be prime.
+
+Now let $x \in R^*$.
+Then by Characteristic times Ring Element is Ring Zero, $n \cdot x = 0_R$.
+It follows from Element to Power of Multiple of Order is Identity that:
+
+$\order x \divides n$
+Since $n$ is prime, either $\order x = 1$ or $\order x = n$.
+It cannot be $1$, from Null Ring iff Characteristic is One, so the result follows.
+$\blacksquare$
+
+
+Sources
+1969: C.R.J. Clapham: Introduction to Abstract Algebra ... (previous) ... (next): Chapter $4$: Fields: $\S 17$. The Characteristic of a Field: Theorem $30$
+1978: Thomas A. Whitelaw: An Introduction to Abstract Algebra ... (previous) ... (next): $\S 61.1$ Characteristic of an integral domain or field
+
+
+
+

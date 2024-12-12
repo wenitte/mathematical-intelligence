@@ -1,0 +1,1115 @@
+# 
+
+Source: https://proofwiki.org/wiki/Field_of_Characteristic_Zero_has_Unique_Prime_Subfield/Proof_2
+
+Theorem
+Let $F$ be a field, whose zero is $0_F$ and whose unity is $1_F$, with characteristic zero.
+Then there exists a unique $P \subseteq F$ such that:
+
+$(1): \quad P$ is a subfield of $F$
+$(2): \quad P$ is isomorphic to the field of rational numbers $\struct {\Q, +, \times}$.
+
+That is, $P \cong \Q$ is a unique minimal subfield of $F$, and all other subfields of $F$ contain $P$.
+
+This field $P$ is called the prime subfield of $F$.
+
+
+Proof
+Let $\struct {F, +, \circ}$ be a field such that $\Char F = 0$.
+Let $P$ be a prime subfield of $F$.
+From Field has Prime Subfield, this has been shown to exist.
+
+As $P$ is a subfield of $F$, we apply Zero and Unity of Subfield and see that the unity of $P$ is $1_F$.
+As $P$ is closed:
+
+$\forall m \in \Z: m \cdot 1_F \in P$ of which $0 \cdot 1_F = 0_F$ the only one that is zero
+$\forall n \in \Z, n \ne 0: \paren {n \cdot 1_F}^{-1} \in P$
+
+So $P$ contains all elements of $F$ of the form:
+
+$\paren {m \cdot 1_F} \circ \paren {n \cdot 1_F}\^{-1}$
+where $m, n \in \Z, n \ne 0$.
+This can be expressed more clearly in division notation as:
+
+$\dfrac {m \cdot 1_F} {n \cdot 1_F}$
+
+Now let $P'$ consist of all the elements of $F$ of the form:
+
+$\dfrac {m \cdot 1_F} {n \cdot 1_F}$
+
+Let $\dfrac {m_1 \cdot 1_F} {n_1 \cdot 1_F} \in P'$ and $\dfrac {m_2 \cdot 1_F} {n_2 \cdot 1_F} \in P'$.
+Then:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \frac {m_1 \cdot 1_F} {n_1 \cdot 1_F} + \frac {m_2 \cdot 1_F} {n_2 \cdot 1_F}\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {\paren {m_1 \cdot 1_F} \circ \paren {n_2 \cdot 1_F} } + \paren {\paren {m_2 \cdot 1_F} \circ \paren {n_1 \cdot 1_F} } } {\paren {n_1 \cdot 1_F} \circ \paren {n_2 \cdot 1_F} }\)
+
+
+
+
+
+Addition of Division Products
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {\paren {m_1 n_2} \cdot \paren {1_F \circ 1_F} } + \paren {\paren {m_2 n_1} \cdot \paren {1_F \circ 1_F} } } {\paren {n_1 n_2} \cdot \paren {1_F \circ 1_F} }\)
+
+
+
+
+
+Product of Integral Multiples
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {\paren {m_1 n_2} \cdot 1_F} + \paren {\paren {m_2 n_1} \cdot 1_F} } {\paren {n_1 n_2} \cdot 1_F}\)
+
+
+
+
+
+as $1_F$ is the unity of $F$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {m_1 n_2 + m_2 n_1} \cdot 1_F} {\paren {n_1 n_2} \cdot 1_F}\)
+
+
+
+
+
+Integral Multiple Distributes over Ring Addition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(\in\)
+
+
+
+
+
+
+
+\(\ds P'\)
+
+
+
+
+
+by definition of $P'$
+
+
+
+So $P'$ is closed under $+$.
+
+Next:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \frac {m_1 \cdot 1_F} {n_1 \cdot 1_F} \circ \frac {m_2 \cdot 1_F} {n_2 \cdot 1_F}\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {m_1 \cdot 1_F} \circ \paren {m_2 \cdot 1_F} } {\paren {n_1 \cdot 1_F} \circ \paren {n_2 \cdot 1_F} }\)
+
+
+
+
+
+Product of Division Products
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {m_1 m_2} \cdot \paren {1_F \circ 1_F} } {\paren {n_1 n_2} \cdot \paren {1_F \circ 1_F} }\)
+
+
+
+
+
+Product of Integral Multiples
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {m_1 m_2} \cdot 1_F} {\paren {n_1 n_2} \cdot 1_F}\)
+
+
+
+
+
+as $1_F$ is the unity of $F$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(\in\)
+
+
+
+
+
+
+
+\(\ds P'\)
+
+
+
+
+
+by definition of $P'$
+
+
+
+So $P'$ is closed under $\circ$.
+
+Next:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds -\frac {m_1 \cdot 1_F} {n_1 \cdot 1_F}\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {-\paren {m_1 \cdot 1_F} } {n_1 \cdot 1_F}\)
+
+
+
+
+
+Negative of Division Product
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {-1 \cdot \paren {m_1 \cdot 1_F} } {n_1 \cdot 1_F}\)
+
+
+
+
+
+Definition of Integral Multiple
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {-m_1 \cdot 1_F} {n_1 \cdot 1_F}\)
+
+
+
+
+
+Integral Multiple of Integral Multiple
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(\in\)
+
+
+
+
+
+
+
+\(\ds P'\)
+
+
+
+
+
+Definition of $P'$, as $-m_1 \in \Z$
+
+
+
+So $P'$ is closed under taking inverses of $+$.
+
+Next, assuming that $m \ne 0$:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \paren {\frac {m_1 \cdot 1_F} {n_1 \cdot 1_F} }^{-1}\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {n_1 \cdot 1_F} {m_1 \cdot 1_F}\)
+
+
+
+
+
+Inverse of Division Product
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(\in\)
+
+
+
+
+
+
+
+\(\ds P'\)
+
+
+
+
+
+Definition of $P'$
+
+
+
+So $P' \setminus \set {0_F}$ is closed under taking inverses of $\circ$.
+Thus by Subfield Test, $P'$ is a subfield of $F$.
+
+It follows that $P = P'$, and so $P$ contains precisely the elements of the form $\dfrac {m \cdot 1_F} {n \cdot 1_F}$.
+
+We can consistently define a mapping $\phi: \Q \to P$ by:
+
+$\forall m, n \in \Z: n \ne 0: \map \phi {\dfrac m n} = \dfrac {m \cdot 1_F} {n \cdot 1_F}$
+First we show that $\phi$ is well-defined.
+Suppose $\dfrac {m_1} {n_1} = \dfrac {m_2} {n_2}$.
+Then by multiplying both sides by $n_1 n_2$:
+
+$m_1 n_2 = m_2 n_1$
+
+We need to show that:
+
+$\map \phi {\dfrac {m_1} {n_1} } = \map \phi {\dfrac {m_2} {n_2} }$
+So:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \map \phi {\frac {m_1} {n_1} } + \paren {-\map \phi {\frac {m_2} {n_2} } }\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {m_1 \cdot 1_F} {n_1 \cdot 1_F} + \paren {-\frac {m_2 \cdot 1_F} {n_2 \cdot 1_F} }\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {m_1 \cdot 1_F} {n_1 \cdot 1_F} + \frac {-m_2 \cdot 1_F} {n_2 \cdot 1_F}\)
+
+
+
+
+
+from above: negative of element of form $\dfrac {m \cdot 1_F} {n \cdot 1_F}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {m_1 n_2 - m_2 n_1} \cdot 1_F} {\paren {n_1 n_2} \cdot 1_F}\)
+
+
+
+
+
+from above: addition of elements of form $\dfrac {m \cdot 1_F} {n \cdot 1_F}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {0 \cdot 1_F} {\paren {n_1 n_2} \cdot 1_F}\)
+
+
+
+
+
+as $m_1 n_2 = m_2 n_1$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds 0_F\)
+
+
+
+
+
+
+
+
+
+That is:
+
+$\map \phi {\dfrac {m_1} {n_1} } = \map \phi {\dfrac {m_2} {n_2} }$
+demonstrating that $\phi$ is well-defined.
+
+Next, we need to show that $\phi$ is a ring isomorphism.
+So:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \map \phi {\frac {m_1} {n_1} } + \map \phi {\frac {m_2} {n_2} }\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {m_1 \cdot 1_F} {n_1 \cdot 1_F} + \frac {m_2 \cdot 1_F} {n_2 \cdot 1_F}\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {m_1 n_2 + m_2 n_1} \cdot 1_F} {\paren {n_1 n_2} \cdot 1_F}\)
+
+
+
+
+
+from above: addition of elements of form $\dfrac {m \cdot 1_F} {n \cdot 1_F}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map \phi {\frac {m_1 n_2 + m_2 n_1} {n_1 n_2} }\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map \phi {\frac {m_1} {n_1} + \frac {m_2} {n_2} }\)
+
+
+
+
+
+
+
+
+
+and:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \map \phi {\frac{m_1} {n_1} } \circ \map \phi {\frac {m_2} {n_2} }\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {m_1 \cdot 1_F} {n_1 \cdot 1_F} \times \frac {m_2 \cdot 1_F} {n_2 \cdot 1_F}\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac {\paren {m_1 m_2} \cdot 1_F} {\paren {n_1 n_2} \cdot 1_F}\)
+
+
+
+
+
+from above: product of elements of form $\dfrac {m \cdot 1_F} {n \cdot 1_F}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map \phi {\frac {m_1 m_2} {n_1 n_2} }\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map \phi {\frac {m_1} {n_1} \circ \frac {m_2} {n_2} }\)
+
+
+
+
+
+
+
+
+
+thus proving that $\phi$ is a ring homomorphism.
+
+From Ring Homomorphism from Field is Monomorphism or Zero Homomorphism, it follows that $\phi$ is a ring monomorphism.
+It is also clear that $\phi$ is a surjection, as every element of $P$ is the image of some element of $\Q$.
+It follows that $\phi$ is a ring isomorphism.
+
+Now let $K$ be a subfield of $F$.
+Let $P = \Img \phi$ as defined above.
+We know that $1_F \in K$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds 1_F\)
+
+\(\in\)
+
+
+
+
+
+
+
+\(\ds K\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \leadsto \ \ \)
+
+\(\ds \forall k \in \Z: \, \)
+
+
+
+\(\ds k \cdot 1_F\)
+
+\(\in\)
+
+
+
+
+
+
+
+\(\ds K\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \leadsto \ \ \)
+
+\(\ds \forall m, n \in \Z: n \ne 0: \, \)
+
+
+
+\(\ds \paren {m \cdot 1_F} \circ \paren {n \cdot 1_F}^{-1}\)
+
+\(\in\)
+
+
+
+
+
+
+
+\(\ds K\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \leadsto \ \ \)
+
+
+
+
+
+\(\ds P\)
+
+\(\subseteq\)
+
+
+
+
+
+
+
+\(\ds K\)
+
+
+
+
+
+
+
+
+
+
+Thus $K$ contains a subfield $P$ such that $P$ is isomorphic to $\Q$.
+
+The uniqueness of $P$ follows from the fact that if $P_1$ and $P_2$ are both minimal subfields of $F$, then $P_1 \subseteq P_2$ and $P_2 \subseteq P_1$, thus $P_1 = P_2$.
+$\blacksquare$
+
+
+Sources
+1964: Iain T. Adamson: Introduction to Field Theory ... (previous) ... (next): Chapter $\text {I}$: Elementary Definitions: $\S 3$. Homomorphisms: Theorem $3.2$
+1978: Thomas A. Whitelaw: An Introduction to Abstract Algebra ... (previous) ... (next): $\S 61$. Characteristic of an integral domain or field
+
+
+
+

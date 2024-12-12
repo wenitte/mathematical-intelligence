@@ -1,0 +1,143 @@
+# 
+
+Source: https://proofwiki.org/wiki/Fourier_Cosine_Coefficients_for_Even_Function_over_Symmetric_Range
+
+
+
+Theorem
+Let $\map f x$ be an even real function defined on the interval $\openint {-\lambda} \lambda$.
+Let the Fourier series of $\map f x$ be expressed as:
+
+$\map f x \sim \dfrac {a_0} 2 + \ds \sum_{n \mathop = 1}^\infty \paren {a_n \cos \frac {n \pi x} \lambda + b_n \sin \frac {n \pi x} \lambda}$
+
+Then for all $n \in \Z_{\ge 0}$:
+
+$a_n = \dfrac 2 \lambda \ds \int_0^\lambda \map f x \cos \frac {n \pi x} \lambda \rd x$
+
+
+Proof
+As suggested, let the Fourier series of $\map f x$ be expressed as:
+
+$\map f x \sim \dfrac {a_0} 2 + \ds \sum_{n \mathop = 1}^\infty \paren {a_n \cos \frac {n \pi x} \lambda + b_n \sin \frac {n \pi x} \lambda}$
+By definition of Fourier series:
+
+$a_n = \dfrac 1 \lambda \ds \int_{-\lambda}^{-\lambda + 2 \lambda} \map f x \cos \frac {n \pi x} \lambda \rd x$
+
+From Cosine Function is Even:
+
+$\cos a = \map \cos {-a}$
+for all $a$.
+By Even Function Times Even Function is Even, $\map f x \cos \dfrac {n \pi x} \lambda$ is even.
+
+Thus:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds a_n\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac 1 \lambda \int_{-\lambda}^{-\lambda + 2 \lambda} \map f x \cos \frac {n \pi x} \lambda \rd x\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac 1 \lambda \int_{-\lambda}^\lambda \map f x \cos \frac {n \pi x} \lambda \rd x\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \frac 2 \lambda \int_0^\lambda \map f x \cos \frac {n \pi x} \lambda \rd x\)
+
+
+
+
+
+Definite Integral of Even Function: Corollary
+
+
+
+$\blacksquare$
+
+
+Also see
+Fourier Sine Coefficients for Even Function over Symmetric Range
+Fourier Cosine Coefficients for Odd Function over Symmetric Range
+Fourier Sine Coefficients for Odd Function over Symmetric Range
+
+
+Sources
+1961: I.N. Sneddon: Fourier Series ... (previous) ... (next): Chapter One: $\S 4$. Even and Odd Functions: $(5)$
+
+
+
+

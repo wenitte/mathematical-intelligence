@@ -1,0 +1,19 @@
+# 
+
+Source: https://proofwiki.org/wiki/Excluded_Point_Space_is_Ultraconnected/Proof_1
+
+Theorem
+Let $T = \left({S, \tau_{\bar p}}\right)$ be an excluded point space.
+
+Then $T$ is ultraconnected.
+
+
+Proof
+Excluded Point Topology is Open Extension Topology of Discrete Topology
+Open Extension Space is Ultraconnected
+$\blacksquare$
+
+
+
+
+
