@@ -43,7 +43,8 @@ Convert the following proof to FL-Math while maintaining mathematical rigor and 
 
 {proofContent}
 
-Ensure all logical steps are connected with appropriate connectives and maintain proper theorem/proof structure.`;
+Ensure all logical steps are connected with appropriate connectives and maintain proper theorem/proof structure. Convert this mathematical proof to FuturLang Mathematical notation (FL-Math). Only output the conversion, no explanations or extra text. Use this exact format:`;
+
 
 async function loadState() {
     try {
