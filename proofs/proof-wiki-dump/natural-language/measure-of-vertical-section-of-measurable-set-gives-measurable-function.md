@@ -1,0 +1,680 @@
+# 
+
+Source: https://proofwiki.org/wiki/Measure_of_Vertical_Section_of_Measurable_Set_gives_Measurable_Function
+
+Theorem
+Let $\struct {X, \Sigma_X, \mu}$ and $\struct {Y, \Sigma_Y, \nu}$ be $\sigma$-finite measure spaces.
+For each $E \in \Sigma_X \otimes \Sigma_Y$, define the function $f_E : X \to \overline \R$ by: 
+
+$\map {f_E} x = \map {\nu} {E_x}$
+for each $x \in X$ where: 
+
+$\Sigma_X \otimes \Sigma_Y$ is the product $\sigma$-algebra of $\Sigma_X$ and $\Sigma_Y$
+$E_x$ is the $x$-vertical section of $E$.
+
+Then $f_E$ is $\Sigma_X$-measurable for each $E \in \Sigma_X \otimes \Sigma_Y$. 
+
+
+Proof
+From Vertical Section of Measurable Set is Measurable, the function $f_E$ is certainly well-defined for each $E \in \Sigma_X \otimes \Sigma_Y$. 
+
+First suppose that $\nu$ is a finite measure.
+Let: 
+
+$\mathcal F = \set {E \in \Sigma_X \otimes \Sigma_Y : f_E \text { is } \Sigma_X\text{-measurable} }$
+We aim to show that: 
+
+$\mathcal F = \Sigma_X \otimes \Sigma_Y$
+at which point we will have the demand, since for all $E \in \Sigma_X \otimes \Sigma_Y$ we will have that $f_E$ is $\Sigma_X$-measurable.
+Since we clearly have: 
+
+$\mathcal F \subseteq \Sigma_X \otimes \Sigma_Y$
+we only need to show:
+
+$\Sigma_X \otimes \Sigma_Y \subseteq \mathcal F$
+
+We first show that: 
+
+$S_1 \times S_2 \in \mathcal F$
+for $S_1 \in \Sigma_X$ and $S_2 \in \Sigma_Y$.
+From Measure of Vertical Section of Cartesian Product, we have:
+
+$\map {\nu} {\paren {S_1 \times S_2}_x} = \map {\nu} {S_2} \map {\chi_{S_1} } x$
+Since $S_1$ is $\Sigma_X$-measurable, we have: 
+
+$\chi_{S_1}$ is $\Sigma_X$-measurable.
+Then from Pointwise Scalar Multiple of Measurable Function is Measurable, we have: 
+
+$f_{S_1 \times S_2}$ is $\Sigma_X$-measurable.
+So:
+
+$S_1 \times S_2 \in \mathcal F$
+
+With a view to apply Dynkin System with Generator Closed under Intersection is Sigma-Algebra, we first show that $\mathcal F$ is a Dynkin system.
+We verify the three conditions of a Dynkin system.
+Since: 
+
+$S_1 \times S_2 \in \mathcal F$
+for each $S_1 \in \Sigma_X$ and $S_2 \in \Sigma_Y$, we have: 
+
+$X \times Y \in \mathcal F$
+hence $(1)$ is shown.
+Let $D \in \mathcal F$. 
+We aim to show that $\paren {X \times Y} \setminus D \in \mathcal F$. 
+From Complement of Vertical Section of Set is Vertical Section of Complement, we have: 
+
+$\paren {\paren {X \times Y} \setminus E}_x = Y \setminus E_x$
+Note that since $\nu$ is a finite measure, we have that: 
+
+$\map {\nu} Y$ and $\map {\nu} {E_x}$ are finite.
+So:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \map {f_{\paren {X \times Y} \setminus D} } x\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} {\paren {\paren {X \times Y} \setminus E}_x}\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} {Y \setminus E_x}\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} Y - \map {\nu} {E_x}\)
+
+
+
+
+
+Measure of Set Difference with Subset
+
+
+
+Since $E \in \mathcal F$, we have: 
+
+$f_E$ is $\Sigma_X$-measurable.
+From Constant Function is Measurable and Pointwise Difference of Measurable Functions is Measurable, we have: 
+
+$\map {\nu} Y - \map {\nu} {E_\circ} = f_{\paren {X \times Y} \setminus E}$ is $\Sigma_X$-measurable.
+so:
+
+$\paren {X \times Y} \setminus E \in \mathcal F$
+and $(2)$ is verified.
+Let $\sequence {D_n}_{n \mathop \in \N}$ be a sequence of pairwise disjoint sets in $\mathcal F$. 
+From Intersection of Vertical Sections is Vertical Section of Intersection, we have that $\sequence {\paren {D_n}_x}_{n \mathop \in \N}$ be a sequence of pairwise disjoint sets such that: 
+
+$f_{D_i}$ is $\Sigma_X$-measurable for each $i$.
+Write:
+
+$\ds D = \bigcup_{n \mathop = 1}^\infty D_n$
+We want to show that: 
+
+$f_D$ is $\Sigma_X$-measurable
+so that:
+
+$D \in \mathcal F$
+at which point we will have $(3)$. 
+We have, for each $x \in X$: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \map {f_D} x\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} {D_x}\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} {\paren {\bigcup_{n \mathop = 1}^\infty D_n}_x}\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} {\bigcup_{n \mathop = 1}^\infty \paren {D_n}_x}\)
+
+
+
+
+
+Union of Vertical Sections is Vertical Section of Union
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \sum_{n \mathop = 1}^\infty \map {\nu} {\paren {D_n}_x}\)
+
+
+
+
+
+since $\mu$ is countably additive
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \sum_{n \mathop = 1}^\infty \map {f_{D_n} } x\)
+
+
+
+
+
+
+
+
+
+From Infinite Series of Measurable Functions is Measurable, we have that: 
+
+$f_D$ is $\Sigma_X$-measurable.
+So:
+
+$\ds D = \bigcup_{n \mathop = 1}^\infty D_n \in \mathcal F$
+Since $\sequence {D_n}_{n \mathop \in \N}$ was an arbitrary sequence of pairwise disjoint sets in $\mathcal F$, $(3)$ is verified. 
+
+Define: 
+
+$\mathcal G = \set {S_1 \times S_2 : S_1 \in \Sigma_X \text { and } S_2 \in \Sigma_Y}$
+Since $\mathcal F$ is a Dynkin system, from the definition of a Dynkin system generated by a collection of subsets we have: 
+
+$\map \delta {\mathcal G} \subseteq \mathcal F$
+We show that $\mathcal G$ is a $\pi$-system, at which point we may apply Dynkin System with Generator Closed under Intersection is Sigma-Algebra. 
+Let $A_1, A_2 \in \Sigma_X$ and $B_1, B_2 \in \Sigma_Y$. 
+Then from Cartesian Product of Intersections, we have: 
+
+$\paren {A_1 \times B_1} \cap \paren {A_2 \times B_2} = \paren {A_1 \cap A_2} \times \paren {B_1 \cap B_2}$
+From Sigma-Algebra Closed under Countable Intersection, we have: 
+
+$A_1 \cap A_2 \in \Sigma_X$
+and:
+
+$B_1 \cap B_2 \in \Sigma_Y$
+so:
+
+$\paren {A_1 \times B_1} \cap \paren {A_2 \times B_2} \in \mathcal G$
+So $\mathcal G$ is a $\pi$-system.
+From Dynkin System with Generator Closed under Intersection is Sigma-Algebra, we have: 
+
+$\map \delta {\mathcal G} = \map \sigma {\mathcal G}$
+so:
+
+$\map \sigma {\mathcal G} \subseteq \mathcal F$
+From the definition of product $\sigma$-algebra, we have: 
+
+$\map \sigma {\mathcal G} = \Sigma_X \otimes \Sigma_Y$
+So:
+
+$\Sigma_X \otimes \Sigma_Y \subseteq \mathcal F$
+Hence: 
+
+$\mathcal F = \Sigma_X \otimes \Sigma_Y$
+as required.
+
+Now suppose that $\nu$ is $\sigma$-finite.
+Then there exists a sequence of $\Sigma_Y$-measurable sets $\sequence {Y_n}_{n \mathop \in \N}$ with: 
+
+$\ds Y = \bigcup_{n \mathop = 1}^\infty Y_n$
+with: 
+
+$\map {\nu} {Y_n} < \infty$ for each $n$.
+From Countable Union of Measurable Sets as Disjoint Union of Measurable Sets, there exists a sequence of pairwise disjoint  $\Sigma_Y$-measurable sets $\sequence {F_n}_{n \mathop \in \N}$ with:
+
+$\ds Y = \bigcup_{n \mathop = 1}^\infty F_n$
+with:
+
+$F_n \subseteq Y_n$ for each $n$.
+From Measure is Monotone, we have that: 
+
+$\map {\nu} {F_n} \le \map {\nu} {Y_n}$ for each $n$.
+So:
+
+$\map {\nu} {F_n}$ is finite for each $n$.
+Now, for each $E \in \Sigma$ define: 
+
+$\map {\nu^{\paren n} } E = \map {\nu} {E \cap F_n}$
+From Intersection Measure is Measure:
+
+$\nu^{\paren n}$ is a measure for each $n$.
+We also have: 
+
+$\map {\nu^{\paren n} } Y = \map {\nu} {F_n} < \infty$
+so:
+
+$\nu^{\paren n}$ is a finite measure for each $n$.
+For each $n$, define a function $f_E^{\paren n} : X \to \overline \R$: 
+
+$\map {f_E^{\paren n} } x = \map {\nu^{\paren n} } {E_x}$
+for each $x \in X$.
+From our previous work, we have that $f_E^{\paren n}$ is $\Sigma_X$-measurable. 
+For each $x \in X$, we have: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \map {f_E} x\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} {E_x}\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} {E_x \cap Y}\)
+
+
+
+
+
+Intersection with Subset is Subset
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} {E_x \cap \paren {\bigcup_{n \mathop = 1}^\infty F_n} }\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \map {\nu} {\bigcup_{n \mathop = 1}^\infty \paren {E_x \cap F_n} }\)
+
+
+
+
+
+Intersection Distributes over Union
+
+
+
+Since:
+
+$F_i \cap F_j = \O$ whenever $i \ne j$
+we have: 
+
+$\paren {E_x \cap F_i} \cap \paren {E_x \cap F_j} = \O$ whenever $i \ne j$
+from Intersection with Empty Set.
+So, using countable additivity of $\nu$, we have: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \map {\nu} {\bigcup_{n \mathop = 1}^\infty \paren {E_x \cap F_n} }\)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \sum_{n \mathop = 1}^\infty \map {\nu} {E_x \cap F_n}\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \sum_{n \mathop = 1}^\infty \map {\nu^{\paren n} } {E_x}\)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\(\ds \)
+
+\(=\)
+
+
+
+
+
+
+
+\(\ds \sum_{n \mathop = 1}^\infty \map {f_E^{\paren n} } x\)
+
+
+
+
+
+
+
+
+
+That is: 
+
+$\ds \map {f_E} x = \sum_{n \mathop = 1}^\infty \map {f_E^{\paren n} } x$
+for each $x \in X$.
+From Infinite Series of Measurable Functions is Measurable, we have that: 
+
+$f_E$ is $\Sigma_X$-measurable.
+So we get the result in the case of $\nu$ $\sigma$-finite, and we are done.
+$\blacksquare$
+
+
+Sources
+2013: Donald L. Cohn: Measure Theory (2nd ed.) ... (previous) ... (next): $5.1$: Constructions: Proposition $5.1.3$
+
+
+
+
