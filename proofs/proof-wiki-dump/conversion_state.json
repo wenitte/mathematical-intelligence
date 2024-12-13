@@ -1209,6 +1209,17 @@
     "binomial-coefficient-involving-power-of-prime-proof-1.md",
     "binomial-coefficient-involving-power-of-prime-proof-2.md",
     "binomial-coefficient-involving-power-of-prime.md",
-    "binomial-coefficient-involving-prime.md"
+    "binomial-coefficient-involving-prime.md",
+    "binomial-coefficient-is-instance-of-gaussian-binomial-coefficient.md",
+    "binomial-coefficient-is-integer-proof-1.md",
+    "binomial-coefficient-is-integer-proof-2.md",
+    "binomial-coefficient-is-integer.md",
+    "binomial-coefficient-n-choose-j-in-terms-of-n-2-choose-r.md",
+    "binomial-coefficient-n-choose-k-by-n-plus-1-minus-n-choose-k-1.md",
+    "binomial-coefficient-of-half-corollary.md",
+    "binomial-coefficient-of-half.md",
+    "binomial-coefficient-of-minus-half.md",
+    "binomial-coefficient-of-prime-minus-one-modulo-prime.md",
+    "binomial-coefficient-of-prime-plus-one-modulo-prime.md"
   ]
 }
