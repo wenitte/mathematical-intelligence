@@ -140,6 +140,22 @@
     "absolute-value-function-is-completely-multiplicative-proof-2.md",
     "absolute-value-function-is-completely-multiplicative-proof-3.md",
     "absolute-value-function-is-completely-multiplicative-proof-4.md",
-    "absolute-value-function-is-completely-multiplicative.md"
+    "absolute-value-function-is-completely-multiplicative.md",
+    "absolute-value-function-is-convex-proof-1.md",
+    "absolute-value-function-is-convex-proof-2.md",
+    "absolute-value-function-is-convex.md",
+    "absolute-value-function-is-even-function.md",
+    "absolute-value-function-on-integers-induces-equivalence-relation.md",
+    "absolute-value-induces-equivalence-compatible-with-integer-multiplication.md",
+    "absolute-value-induces-equivalence-not-compatible-with-integer-addition.md",
+    "absolute-value-is-bounded-below-by-zero.md",
+    "absolute-value-is-many-to-one.md",
+    "absolute-value-is-norm.md",
+    "absolute-value-of-absolutely-continuous-function-is-absolutely-continuous.md",
+    "absolute-value-of-absolutely-convergent-product-is-absolutely-convergent.md",
+    "absolute-value-of-complex-cross-product-is-commutative-examples-2-5i-cross-3-i.md",
+    "absolute-value-of-complex-cross-product-is-commutative-examples.md",
+    "absolute-value-of-complex-cross-product-is-commutative.md",
+    "absolute-value-of-complex-dot-product-is-commutative-examples-2-5i-dot-3-i.md"
   ]
 }
