@@ -1,0 +1,27 @@
+theorem_definition(Y_Combinator) ↔
+    ∃Y: (F → F) → F (∀f: (F → F) (Y(f) = f(Y(f)))).
+→
+
+[assumption(Self_Application) ↔
+    ∀x: F ((x x) = λv.((x x) v))].
+→
+
+[construction(Fixed_Point_Function) ↔
+    Y(f) = (λx: F → F (x x)) (λx: F → F (f (λv: F ((x x) v))))].
+→
+
+[verification(Self_Referential_Property) ↔
+    ∀f: F → F (Y(f) = f(Y(f)))].
+→
+
+[semantic_equivalence(Lambda_Calculus) ↔
+    Y = λf.(λx.x x) (λx.f (x x))].
+→
+
+[beta_expansion(Explicit_Beta_Expansion) ↔
+    ∀x: F ((x x) = λv.((x x) v)) → Y(f) = f(Y(f))].
+→
+
+[conclusion(C) ↔
+    Y = (λx.x x) (λx.f (x x)).
+    ∴ Proved.].
