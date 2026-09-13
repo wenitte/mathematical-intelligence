@@ -53,4 +53,6 @@ Check out our examples/ directory for:
 Help us build the foundation for next-generation mathematical AI. Together, we can advance the frontier of automated mathematical reasoning.
 
 ## License
-MIT License - Feel free to use the data for research and development.
+IMF License - Feel free to use the data for research and development.
+ look up IMF license Wenitte on GitHub for the full license 
+
